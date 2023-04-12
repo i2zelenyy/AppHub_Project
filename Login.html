@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Untitled-1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+ html, body {
+	 height: 100%;
+}
+ body {
+	 font-family: 'Press Start 2P', cursive;
+	 font-size: 16px;
+	 font-weight: bold;
+	 color: #fff;
+	 background-color: #018281;
+	 margin-top: -15%;
+}
+ .myIMG{
+	position: fixed;
+  	right: 0;
+ 	bottom: 0;
+	min-width: 100%;
+  	min-height: 100%;
+  	z-index: -2;
+ }
+/* unvisited link */
+ a:link {
+	 color: #fff;
+	 text-decoration: none;
+}
+/* visited link */
+ a:visited {
+	 color: #fff;
+	 text-decoration: none;
+}
+/* mouse over link */
+ a:hover {
+	 color: #ff00f0;
+	 text-decoration: none;
+}
+/* selected link */
+ a:active {
+	 color: #4242e6;
+	 text-decoration: none;
+}
+ .center {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 height: 100%;
+	 width: 100%;
+}
+ h1 {
+	 display: block;
+	 font-size: 3em;
+	 margin: 0.6em 0;
+	 font-weight: bold;
+}
+ .glitch {
+	 position: relative;
+	 margin: 0 auto;
+	 background: #018281;
+}
+ .glitch::before, .glitch::after {
+	 animation-iteration-count: infinite;
+	 animation-timing-function: linear;
+	 animation-direction: alternate-reverse;
+	 overflow: hidden;
+	 position: absolute;
+	 top: 0;
+	 clip: rect(0, 900px, 0, 0);
+	 content: attr(data-text);
+}
+ .glitch::after {
+	 animation-name: glitch-animation;
+	 animation-duration: 4s;
+	 left: 4px;
+	 text-shadow: -1px 0 #ffa800;
+	 background: #018281;
+}
+ .glitch::before {
+	 animation-name: glitch-animation-2;
+	 animation-duration: 6s;
+	 left: -4px;
+	 text-shadow: 1px 0 #00d8ff;
+	 background: #018281;
+}
+/* Expanded Animations */
+ @keyframes glitch-animation {
+	 0% {
+		 clip: rect(42px, 9999px, 44px, 0);
+	}
+	 5% {
+		 clip: rect(12px, 9999px, 59px, 0);
+	}
+	 10% {
+		 clip: rect(48px, 9999px, 29px, 0);
+	}
+	 15% {
+		 clip: rect(42px, 9999px, 73px, 0);
+	}
+	 20% {
+		 clip: rect(63px, 9999px, 27px, 0);
+	}
+	 25% {
+		 clip: rect(34px, 9999px, 55px, 0);
+	}
+	 30% {
+		 clip: rect(86px, 9999px, 73px, 0);
+	}
+	 35% {
+		 clip: rect(20px, 9999px, 20px, 0);
+	}
+	 40% {
+		 clip: rect(26px, 9999px, 60px, 0);
+	}
+	 45% {
+		 clip: rect(25px, 9999px, 66px, 0);
+	}
+	 50% {
+		 clip: rect(57px, 9999px, 98px, 0);
+	}
+	 55% {
+		 clip: rect(5px, 9999px, 46px, 0);
+	}
+	 60% {
+		 clip: rect(82px, 9999px, 31px, 0);
+	}
+	 65% {
+		 clip: rect(54px, 9999px, 27px, 0);
+	}
+	 70% {
+		 clip: rect(28px, 9999px, 99px, 0);
+	}
+	 75% {
+		 clip: rect(45px, 9999px, 69px, 0);
+	}
+	 80% {
+		 clip: rect(23px, 9999px, 85px, 0);
+	}
+	 85% {
+		 clip: rect(54px, 9999px, 84px, 0);
+	}
+	 90% {
+		 clip: rect(45px, 9999px, 47px, 0);
+	}
+	 95% {
+		 clip: rect(37px, 9999px, 20px, 0);
+	}
+	 100% {
+		 clip: rect(4px, 9999px, 91px, 0);
+	}
+}
+ @keyframes glitch-animation-2 {
+	 0% {
+		 clip: rect(65px, 9999px, 100px, 0);
+	}
+	 5% {
+		 clip: rect(52px, 9999px, 74px, 0);
+	}
+	 10% {
+		 clip: rect(79px, 9999px, 85px, 0);
+	}
+	 15% {
+		 clip: rect(75px, 9999px, 5px, 0);
+	}
+	 20% {
+		 clip: rect(67px, 9999px, 61px, 0);
+	}
+	 25% {
+		 clip: rect(14px, 9999px, 79px, 0);
+	}
+	 30% {
+		 clip: rect(1px, 9999px, 66px, 0);
+	}
+	 35% {
+		 clip: rect(86px, 9999px, 30px, 0);
+	}
+	 40% {
+		 clip: rect(23px, 9999px, 98px, 0);
+	}
+	 45% {
+		 clip: rect(85px, 9999px, 72px, 0);
+	}
+	 50% {
+		 clip: rect(71px, 9999px, 75px, 0);
+	}
+	 55% {
+		 clip: rect(2px, 9999px, 48px, 0);
+	}
+	 60% {
+		 clip: rect(30px, 9999px, 16px, 0);
+	}
+	 65% {
+		 clip: rect(59px, 9999px, 50px, 0);
+	}
+	 70% {
+		 clip: rect(41px, 9999px, 62px, 0);
+	}
+	 75% {
+		 clip: rect(2px, 9999px, 82px, 0);
+	}
+	 80% {
+		 clip: rect(47px, 9999px, 73px, 0);
+	}
+	 85% {
+		 clip: rect(3px, 9999px, 27px, 0);
+	}
+	 90% {
+		 clip: rect(26px, 9999px, 55px, 0);
+	}
+	 95% {
+		 clip: rect(42px, 9999px, 97px, 0);
+	}
+	 100% {
+		 clip: rect(38px, 9999px, 49px, 0);
+	}
+}
+.login-box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	padding: 40px;
+	transform: translate(-50%,-50%);
+	background: rgba(0, 0, 0, .5);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.6);
+	border-radius: 10px;
+}
+.login-box h2{
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+}
+.login-box .user-box {
+	position: relative;
+}
+.login-box .user-box input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background: transparent;
+}
+.login-box .user-box label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	pointer-events: none;
+	transition: .5s;
+}
+.login-box .user-box input:focus ~
+label,
+.login-box .user-box input:valid ~
+label {
+	top: -20px;
+	left: 0;
+	color: #018281;
+	font-size: 12px;
+}
+.login-box form a {
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	color: #018281;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: .5s;
+	margin-top: 15px;
+	letter-spacing: 4px;
+}
+.login-box a:hover {
+	background: #018281;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #03e9f4,
+				0 0 25px #03e9f4,
+				0 0 50px #03e9f4,
+				0 0 100px #03e9f4;
+}
+.login-box a span {
+	position: absolute;
+	display: block;
+}
+.login-box a span:nth-child(1) {
+	top: 0;
+	left: -100px;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #03e9f4);
+	animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+	0% {
+		left: -100%;
+	}
+	50%,100% {
+		left:100%
+	}
+}
+.login-box  a span:nth-child(2) {
+	top: -100%;
+	right: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg, transparent, #03e9f4);
+	animation: btn-anim2 1s linear infinite;
+	animation-delay: .25s;
+}
+@keyframes btn-anim2 {
+	0% {
+		top: -100%;
+	}
+	50%, 100% {
+		top: 100%;
+	}
+}
+.login-box a span:nth-child(3) {
+	bottom: 0;
+	right: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(270deg, transparent, #03e9f4);
+	animation: btn-anim3 1s linear infinite;
+	animation-delay: .5s;
+}
+@keyframes btn-anim3 {
+	0% {
+		right: -100%;
+	}
+	50%, 100% {
+		right: 100%;
+	}
+}
+.login-box a span:nth-child(4) {
+	bottom: -100%;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(360deg, transparent, #03e9f4);
+	animation: btn-anim4 1s linear infinite;
+	animation-delay: .75s;
+}
+@keyframes btn-anim4 {
+	0% {
+		bottom: -100%;
+	}
+	50%, 100% {
+		bottom: 100%
+	}
+}
+</style>
+<main class="center">
+    <h1>
+      <span class="glitch" data-text="go away">
+        welcome!
+      </span>
+    </h1>
+	<div class="login-box">
+		<h2>Login</h2>
+		<form>
+			<div class="user-box"><input type="text" name="" required=""><label>Username</label></div>
+			<div class="user-box"><input type="password" name="" required=""><label>Password</label></div>
+			<a href="#">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				Submit
+			  </a>
+			<a>Register</a>
+		</form>
+	</div>
+  </main>

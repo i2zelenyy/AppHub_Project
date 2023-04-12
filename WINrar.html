@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+@font-face {
+    font-family: 'Windows 95';
+    src: url('../Proto1/fonts/w-95-sans-serif.woff2') format('woff2'),
+        url('../Proto1/fonts/w-95-sans-serif.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.btn {
+    position: relative;
+    transition: all 0.2s ease;
+    letter-spacing: 0.025em;
+    font-size: .6rem;
+    border-radius: 0.125rem;
+    padding: .6rem 2rem;
+    max-height: 37px;
+}
+
+.btn:before,
+.btn:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    background: transparent;
+    z-index: 9;
+    top: 0;
+    left: 0;
+}
+
+.btn:before {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #858585;
+    border-bottom: 2px solid #858585;
+}
+
+.btn:not(:disabled):not(.disabled):active:before,
+.btn:not(:disabled):not(.disabled):active:focus:before {
+    border-color: transparent;
+    color: #000;
+}
+
+.btn .btn-text {
+    border: 1px solid transparent;
+    font-family: 'Windows 95';
+}
+
+.btn:not(:disabled):not(.disabled):active .btn-text,
+.btn:not(:disabled):not(.disabled):active:focus .btn-text {
+    border: 1px dotted #000;
+    font-family: 'Windows 95';
+}
+
+.border-dark {
+    border: 2px solid #0A0A0A !important;
+}
+
+.border-dark-lg {
+    border: 3px solid #0A0A0A !important;
+}
+
+.btn.btn-pill {
+    border-radius: 2rem;
+}
+
+.btn.btn-circle {
+    border-radius: 50%;
+}
+
+.btn-group .btn,
+.input-group .btn {
+    margin-right: 0;
+    transform: translateY(0);
+}
+
+.btn .toggle-arrow {
+    transition: all 0.2s ease;
+}
+
+.btn[aria-expanded="true"] .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+.btn-xs,
+.btn-xs i {
+    font-size: 0.75rem ;
+}
+
+.btn-sm,
+.btn-group-sm>.btn,
+.btn-sm i,
+.btn-group-sm>.btn i {
+    font-size: 0.53rem;
+    padding: .4rem 1.6rem;
+    max-height: 29px;
+}
+
+
+
+
+.btn-primary {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #a0a0a0;
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #a0a0a0;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: none
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #c0c0c0;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #c0c0c0;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+
+
+
+.btn-tertiary {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:hover {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:focus,
+.btn-tertiary.focus {
+    box-shadow: none;
+}
+
+.btn-tertiary.disabled,
+.btn-tertiary:disabled {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:not(:disabled):not(.disabled):active,
+.btn-tertiary:not(:disabled):not(.disabled).active,
+.show>.btn-tertiary.dropdown-toggle {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:not(:disabled):not(.disabled):active:focus,
+.btn-tertiary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-tertiary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+
+/**
+ * = Cards
+ */
+
+ .card {
+     border-top: 2px solid white;
+     border-left: 2px solid white;
+     border-right: 2px solid #393939;
+     border-bottom: 2px solid #393939;
+     border-radius: 0;
+     background: #C0C0C0;
+     width: 70%;
+     margin: auto;
+     margin-top: 50px;
+ }
+
+ .card-primary .card-header {
+    background: #C0C0C0;
+ }
+
+ 
+ .card-tertiary .card-header {
+     background: #000181;
+     color: white;
+ }
+
+ .card-header {
+    position: relative;
+    background: #808080;
+    font-size: .65rem;
+    padding: 4px;
+    color: #C9C9C9;
+    border-radius: 0;
+    border: 2px solid #BDBDBD;
+ }
+
+ .card-header .icon {
+    position: absolute;
+    top: -5px;
+    left: -3px;
+}
+
+ .card-body {
+     padding: 10px 7px;
+     border-top: 2px solid #BDBDBD;
+     border-left: 3px solid #BDBDBD;
+     border-right: 3px solid #BDBDBD;
+     border-bottom: 2px solid #bdbdbd;
+ }
+
+ .card-footer {
+    padding: 10px 7px;
+ }
+
+
+
+/**
+ * = Icons
+ * Credit for the awesome W95 icons https://artage.io/en/icon-packs/original-windows-95-icons?li=all
+ * And the sprite generator https://www.toptal.com/developers/css/sprite-generator/
+ */
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Windows 95", sans-serif;
+    font-weight: 400;
+}
+
+p,
+ol li,
+ul li {
+    font-family: "Windows 95", sans-serif;
+    font-size: .6rem;
+    font-weight: 300;
+    line-height: 2;
+}
+
+a,
+.text-action {
+    color: #000181;
+    font-weight: 400;
+}
+
+a:hover,
+.text-action:hover {
+    color: #000181;
+    cursor: pointer;
+}
+
+
+
+
+
+@media (max-width: 991.98px) {
+    .display-2 {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .display-3 {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
+
+.text-tertiary .text-muted {
+    color: rgba(255, 127, 102, 0.7) !important;
+}
+
+.text-white,
+.text-white:hover {
+    color: #ffffff !important;
+}
+
+
+
+
+
+/*# sourceMappingURL=pixel.css.map */
+body {
+    overflow: hidden;
+}
+.card-text1{
+    text-align: left;
+    margin-left: 120px;
+    margin-right: 50px;
+}
+.myUL{
+    text-align: left;
+    margin-left: 120px;
+    margin-right: 50px;
+    margin-top: auto;
+}
+#object1 {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.cardnav {
+     border-top: 2px solid white;
+     border-left: 2px solid white;
+     border-right: 2px solid #393939;
+     border-bottom: 2px solid #393939;
+     border-radius: 0;
+     background: #C0C0C0;
+     position:fixed;
+     width: auto;
+     height: 30px;
+     bottom:0%;
+     width: 100%;
+     margin: 0%;
+     margin-left: -11px;
+ }
+.traybuttons {
+    position: relative;
+    transition: all 0.2s ease;
+    letter-spacing: 0.025em;
+    font-size: .6rem;
+    border-radius: 0.125rem;
+    padding: .6rem 2rem;
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #a0a0a0;
+    font-size: 0.53rem;
+    padding: .4rem 1.6rem;
+    max-height: 29px;
+    padding: .6rem 2rem;
+    text-align: right;
+    width: 100px;
+}
+.traybuttons:before,
+.traybuttons:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    background: transparent;
+    z-index: 9;
+    top: 0;
+    left: 0;
+}
+
+.traybuttons:before {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #858585;
+    border-bottom: 2px solid #858585;
+}
+.start {
+    padding-bottom: 200px
+}
+.icon-sm {
+    transform: scale(.7);
+    margin-top: -13px;
+    margin-left: -240px;
+}
+.icon.icon-sm i,
+.icon.icon-sm svg {
+    font-size: 1.5rem;
+}
+.navro {
+  display: flex; 
+  align-items: flex-start; 
+}
+
+.navro-1 {
+  align-self: flex-end; 
+}
+.traytext-1 {
+    margin-top: -30px;
+    margin-right: -70px;
+    font-size:4mm;
+}
+.traytext-1:hover {
+    text-shadow: red -3px 0, cyan 3px 0;
+}
+.traytext-2 {
+    margin-top: -30px;
+    margin-right: -95px;
+    font-size:4mm;
+}
+.timetray {
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: transparent;
+  padding: 1px 1px;
+  float: right;
+  text-align: center;
+  font-size: 10px;
+  line-height: 24px;
+  width: auto;
+}
+/**
+glitch styles
+**/
+.cv1{
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch{
+  2%,64%{
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%,60%{
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62%{
+    transform: translate(0,0) skew(5deg); 
+  }
+}
+
+.cv1:before,
+.cv1:after{
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+.cv1:before{
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop{
+  2%,64%{
+    transform: translate(2px,-2px);
+  }
+  4%,60%{
+    transform: translate(-2px,2px);
+  }
+  62%{
+    transform: translate(13px,-1px) skew(-13deg); 
+  }
+}
+
+.cv1:after{
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom{
+  2%,64%{
+    transform: translate(-2px,0);
+  }
+  4%,60%{
+    transform: translate(-2px,0);
+  }
+  62%{
+    transform: translate(-22px,5px) skew(21deg); 
+  }
+}
+canvas
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+</style>
+<script>
+    const images = [
+        {
+            src: 'icons_32x32/discord.png',
+            alt: 'discord'
+        },
+        {
+            src: 'icons_32x32/clock.png',
+            alt: 'clock'
+        },
+        {
+            src: 'icons_32x32/music.png',
+            alt: 'music'
+        }
+        ,{
+            src: 'icons_32x32/chrome.png',
+            alt: 'chrome'
+        }
+        ,{
+            src: 'icons_32x32/calendar.png',
+            alt: 'calendar'
+        }
+        ,{
+            src: 'icons_32x32/flop_drive.png',
+            alt: 'flop_drive'
+        }
+        ,{
+            src: 'icons_32x32/movies.png',
+            alt: 'movies'
+        }
+        ,{
+            src: 'icons_32x32/minecraft.png',
+            alt: 'minecraft'
+        }
+        ,{
+            src: 'icons_32x32/world.png',
+            alt: 'world'
+        }
+    ];
+    
+    function getRandomImage() {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const randomImage = images[randomIndex];
+        return randomImage;
+    }
+</script>
+<script type="text/javascript">
+    function getRandomColor() {
+        var colors = ["#FF5733", "#DAF7A6", "#C70039", "#900C3F", "#f032e6","#e35f5f","#394dcd","#dfe300","#dfe300","#208c71","#6c6c6c","#f47e50","#6fbc76","#ffcc00","#0089c0"];
+        var colorIndex = Math.floor(Math.random() * colors.length);
+        return colors[colorIndex];
+    }
+
+    window.onload = function() {
+        document.body.style.backgroundColor = getRandomColor();
+    };
+</script>
+</head>
+<body>
+        <canvas><img id="random-image" src="" alt=""></canvas>
+        <div class="card card-tertiary">
+            <div class="card-header">
+                WinRAR
+            </div>
+            <div class="card-body bg-white">
+                <img id="object1" src="../Proto1/icons/WINrar.png" alt="far"></img>
+                <p class="card-text1">With over 500 million users worldwide, WinRAR is the world’s most popular compression tool!</p>
+                <p class="card-text1">There is no better way to compress files for efficient and secure file transfer. Providing fast email transmission and well-organized data storage options, WinRAR also offers solutions for users working in all industries and sectors.</p>
+                <ul class="myUL">
+                    <li>WinRAR is a powerful compression tool with many integrated additional functions to help you organize your compressed archives; </li>
+                    <li>Supports all popular compression formats (RAR, ZIP, CAB, ARJ, LZH, TAR, GZip, UUE, ISO, BZIP2, Z and 7-Zip).</li>
+                    <li>allows you to split archives into separate volumes easily, making it possible to save them on several disks.</li>
+                    <li>and many other actions. </li>
+                </ul>
+                <p class="card-text1">Official website: <a href="https://www.win-rar.com/">www.win-rar.com</a></p>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-621.exe" download>
+                    <button class="btn btn-sm mr-2 btn-primary border-dark"
+                        type="button"><span class="btn-text">win 64bit</span></button></a>
+                    <a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x32-621.exe"><button class="btn btn-sm btn-primary" type="button"><span
+                            class="btn-text">win 32bit</span></button></a>
+            </div>
+        </div>
+        <div class="cardnav">
+            <button class="traybuttons" type="button">
+            <div class="icon-sm"> <img src="../Proto1/icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
+        </div>
+            </button>
+            <button class="traybuttons" type="button">
+                <div class="icon-sm"> <img src="../Proto1/icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
+            </div>
+                </button>
+        <div class="timetray" id="current-time">
+            <span class="traytext-1"></span>
+            </div>
+        </div>
+        <script>
+            function updatetime(){
+                var date = new Date();
+                var currentTime = date.toLocaleTimeString();
+                var timeDiv = document.getElementById("current-time");
+                timeDiv.textContent = currentTime;
+            }
+            setInterval(updatetime,1000);
+            function updatepicture(){
+                const randomImage = getRandomImage();
+                const imgElement = document.getElementById('random-image');
+                imgElement.src = randomImage.src;
+                imgElement.alt = randomImage.alt;
+            }
+            setInterval(updatepicture,200);
+        </script>
+        <script>
+            const canvas = document.querySelector("canvas");
+            const ctx = canvas.getContext("2d");
+          
+            // define logo image
+            const img = document.getElementById("random-image");
+          
+            // define logo properties
+            const logoWidth = 80;
+            const logoHeight = 80;
+            let logoX = (canvas.width - logoWidth) / 2;
+            let logoY = (canvas.height - logoHeight) / 2;
+            let logoDx = 2;
+            let logoDy = 2;
+          
+            // set canvas dimensions to match window size
+            function setCanvasDimensions() {
+            const currentWidth = canvas.width;
+            const currentHeight = canvas.height;
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            if (currentWidth !== canvas.width || currentHeight !== canvas.height) {
+            // reset logo position and movement vectors
+            logoX = (canvas.width - logoWidth) / 2;
+            logoY = (canvas.height - logoHeight) / 2;
+    
+            // calculate new direction based on current speed
+            const currentSpeed = Math.sqrt(logoDx * logoDx + logoDy * logoDy);
+            const angle = Math.atan2(logoDy, logoDx);
+            logoDx = Math.cos(angle) * currentSpeed;
+            logoDy = Math.sin(angle) * currentSpeed;
+            }
+        }
+          
+            // draw loop
+            function draw() {
+              // clear canvas
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+              // draw logo
+              ctx.drawImage(img, logoX, logoY, logoWidth, logoHeight);
+          
+              // update logo position
+              logoX += logoDx;
+              logoY += logoDy;
+          
+              // check for collision with canvas edges
+              if (logoX + logoWidth > canvas.width || logoX < 0) {
+                logoDx = -logoDx;
+              }
+              if (logoY + logoHeight > canvas.height ||  logoY < 0) {
+                logoDy = -logoDy;
+              }
+          
+              // request next frame
+              requestAnimationFrame(draw);
+            }
+          
+            // call setCanvasDimensions on page load and add a resize event listener to recall draw function
+            setCanvasDimensions();
+            window.addEventListener("resize", () => {
+              window.cancelAnimationFrame(requestId);
+              setCanvasDimensions();
+              draw();
+            });
+          
+            // start animation loop
+            draw();
+          </script>
+</body>
+</html>
