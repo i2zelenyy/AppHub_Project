@@ -515,6 +515,39 @@ canvas
     left: 0;
     z-index: -2;
 }
+.chbtn {
+    position: relative;
+    place-self: right;
+    transition: all 0.2s ease;
+    font-size: 20px;
+    height: 20px;
+    
+}
+
+.chbtn:before,
+.chbtn:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    background: transparent;
+    z-index: 9;
+    top: 0;
+    left: 0;
+}
+
+.chbtn:before {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #858585;
+    border-bottom: 2px solid #858585;
+}
+.chbtn-sm {
+    font-size: 0.53rem;
+    max-height: 20px;
+}
 </style>
 <script>
     const images = [
@@ -579,6 +612,8 @@ canvas
         <div class="card card-tertiary">
             <div class="card-header">
                 PuTTy
+                <button class="chbtn btn-primary border-dark"
+                        type="button"><span class="btn-text"></span></button></a>
             </div>
             <div class="card-body bg-white">
                 <img id="object1" src="../AppHub_Project/icons/PuTTy.png" alt="far"></img>
