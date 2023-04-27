@@ -8,8 +8,8 @@
 <style>
 @font-face {
     font-family: 'Windows 95';
-    src: url('fonts/w-95-sans-serif.woff2') format('woff2'),
-        url('fonts/w-95-sans-serif.woff') format('woff');
+    src: url('../../fonts/w-95-sans-serif.woff2') format('woff2'),
+        url('../../fonts/w-95-sans-serif.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -519,39 +519,39 @@ canvas
 <script>
     const images = [
         {
-            src: 'icons_32x32/discord.png',
+            src: '../../icons_32x32/discord.png',
             alt: 'discord'
         },
         {
-            src: 'icons_32x32/clock.png',
+            src: '../../icons_32x32/clock.png',
             alt: 'clock'
         },
         {
-            src: 'icons_32x32/music.png',
+            src: '../../icons_32x32/music.png',
             alt: 'music'
         }
         ,{
-            src: 'icons_32x32/chrome.png',
+            src: '../../icons_32x32/chrome.png',
             alt: 'chrome'
         }
         ,{
-            src: 'icons_32x32/calendar.png',
+            src: '../../icons_32x32/calendar.png',
             alt: 'calendar'
         }
         ,{
-            src: 'icons_32x32/flop_drive.png',
+            src: '../../icons_32x32/flop_drive.png',
             alt: 'flop_drive'
         }
         ,{
-            src: 'icons_32x32/movies.png',
+            src: '../../icons_32x32/movies.png',
             alt: 'movies'
         }
         ,{
-            src: 'icons_32x32/minecraft.png',
+            src: '../../icons_32x32/minecraft.png',
             alt: 'minecraft'
         }
         ,{
-            src: 'icons_32x32/world.png',
+            src: '../../icons_32x32/world.png',
             alt: 'world'
         }
     ];
@@ -578,31 +578,36 @@ canvas
         <canvas><img id="random-image" src="" alt=""></canvas>
         <div class="card card-tertiary">
             <div class="card-header">
-                f.lux
+                VLC media player
             </div>
             <div class="card-body bg-white">
-                <img id="object1" src="icons/F.lux_logo.png" alt="far"></img>
-                <p class="card-text1">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</p>
-                <p class="card-text1">It's even possible that you're staying up too late because of your computer. You could use f.lux because it makes you sleep better, or you could just use it just because it makes your computer look better. </p>
-                <p class="card-text1">f.lux makes your computer screen look like the room you're in, all the time. When the sun sets, it makes your computer look like your indoor lights. In the morning, it makes things look like sunlight again. </p>
-                <p class="card-text1">Tell f.lux what kind of lighting you have, and where you live. Then forget about it. f.lux will do the rest, automatically.</p>
-                <p class="card-text1">Official website: <a href="https://justgetflux.com/">www.justgetflux.com</a></p>
+                <img id="object1" src="../../icons/VLC.png" alt="far"></img>
+                <p class="card-text1">VLC is a free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.</p>
+                <ul class="myUL">
+                    <li>Plays everything;</li>
+                    <li>Plays most codecs with no codec packs needed; </li>
+                    <li>Runs on all platforms; </li>
+                    <li>Completely Free.</li>
+                </ul>
+                <p class="card-text1">Official website: <a href="https://www.videolan.org/vlc/index.en.html">www.videolan.org/vlc/</a></p>
             </div>
             <div class="card-footer">
-                <a href="https://justgetflux.com/dlwin.html" download>
+                <a href="https://ftp.halifax.rwth-aachen.de/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.exe" download>
                     <button class="btn btn-sm mr-2 btn-primary border-dark"
-                        type="button"><span class="btn-text">Windows</span></button></a>
-                    <a href="https://justgetflux.com/linux/xflux64.tgz"><button class="btn btn-sm btn-primary" type="button"><span
-                            class="btn-text">Linux x64</span></button></a>
+                        type="button"><span class="btn-text">win 64bit</span></button></a>
+                    <a href="https://mirror.init7.net/videolan/vlc/3.0.18/macosx/vlc-3.0.18-intel64.dmg"><button class="btn btn-sm btn-primary" type="button"><span
+                            class="btn-text">macOS</span></button></a>
+                    <a href="https://www.videolan.org/vlc/#download"><button class="btn btn-sm btn-primary" type="button"><span
+                            class="btn-text">Linux</span></button></a>
             </div>
         </div>
         <div class="cardnav">
             <button class="traybuttons" type="button">
-            <div class="icon-sm"> <img src="icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
+            <div class="icon-sm"> <img src="../../icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
         </div>
             </button>
             <button class="traybuttons" type="button">
-                <div class="icon-sm"> <img src="icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
+                <div class="icon-sm"> <img src="../../icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
             </div>
                 </button>
         <div class="timetray" id="current-time">

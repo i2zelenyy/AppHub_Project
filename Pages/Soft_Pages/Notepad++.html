@@ -8,8 +8,8 @@
 <style>
 @font-face {
     font-family: 'Windows 95';
-    src: url('fonts/w-95-sans-serif.woff2') format('woff2'),
-        url('fonts/w-95-sans-serif.woff') format('woff');
+    src: url('../../fonts/w-95-sans-serif.woff2') format('woff2'),
+        url('../../fonts/w-95-sans-serif.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -519,39 +519,39 @@ canvas
 <script>
     const images = [
         {
-            src: 'icons_32x32/discord.png',
+            src: '../../icons_32x32/discord.png',
             alt: 'discord'
         },
         {
-            src: 'icons_32x32/clock.png',
+            src: '../../icons_32x32/clock.png',
             alt: 'clock'
         },
         {
-            src: 'icons_32x32/music.png',
+            src: '../../icons_32x32/music.png',
             alt: 'music'
         }
         ,{
-            src: 'icons_32x32/chrome.png',
+            src: '../../icons_32x32/chrome.png',
             alt: 'chrome'
         }
         ,{
-            src: 'icons_32x32/calendar.png',
+            src: '../../icons_32x32/calendar.png',
             alt: 'calendar'
         }
         ,{
-            src: 'icons_32x32/flop_drive.png',
+            src: '../../icons_32x32/flop_drive.png',
             alt: 'flop_drive'
         }
         ,{
-            src: 'icons_32x32/movies.png',
+            src: '../../icons_32x32/movies.png',
             alt: 'movies'
         }
         ,{
-            src: 'icons_32x32/minecraft.png',
+            src: '../../icons_32x32/minecraft.png',
             alt: 'minecraft'
         }
         ,{
-            src: 'icons_32x32/world.png',
+            src: '../../icons_32x32/world.png',
             alt: 'world'
         }
     ];
@@ -578,35 +578,31 @@ canvas
         <canvas><img id="random-image" src="" alt=""></canvas>
         <div class="card card-tertiary">
             <div class="card-header">
-                WinRAR
+                Notepad++
             </div>
             <div class="card-body bg-white">
-                <img id="object1" src="icons/WINrar.png" alt="far"></img>
-                <p class="card-text1">With over 500 million users worldwide, WinRAR is the world’s most popular compression tool!</p>
-                <p class="card-text1">There is no better way to compress files for efficient and secure file transfer. Providing fast email transmission and well-organized data storage options, WinRAR also offers solutions for users working in all industries and sectors.</p>
-                <ul class="myUL">
-                    <li>WinRAR is a powerful compression tool with many integrated additional functions to help you organize your compressed archives; </li>
-                    <li>Supports all popular compression formats (RAR, ZIP, CAB, ARJ, LZH, TAR, GZip, UUE, ISO, BZIP2, Z and 7-Zip).</li>
-                    <li>allows you to split archives into separate volumes easily, making it possible to save them on several disks.</li>
-                    <li>and many other actions. </li>
-                </ul>
-                <p class="card-text1">Official website: <a href="https://www.win-rar.com/">www.win-rar.com</a></p>
+                <img id="object1" src="../../icons/Notepad++.png" alt="far"></img>
+                <p class="card-text1">Notepad++ is a free (as in “free speech” and also as in “free beer”) source code editor and Notepad replacement that supports several languages. Running in the MS Windows environment, its use is governed by GNU General Public License.</p>
+                <p class="card-text1">Based on the powerful editing component Scintilla, Notepad++ is written in C++ and uses pure Win32 API and STL which ensures a higher execution speed and smaller program size. By optimizing as many routines as possible without losing user friendliness, Notepad++ is trying to reduce the world carbon dioxide emissions. When using less CPU power, the PC can throttle down and reduce power consumption, resulting in a greener environment.</p>
+                <p class="card-text1">Official website: <a href="https://notepad-plus-plus.org/">https://notepad-plus-plus.org</a></p>
             </div>
             <div class="card-footer">
-                <a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-621.exe" download>
+                <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.5.2/npp.8.5.2.Installer.x64.exe">
                     <button class="btn btn-sm mr-2 btn-primary border-dark"
-                        type="button"><span class="btn-text">win 64bit</span></button></a>
-                    <a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x32-621.exe"><button class="btn btn-sm btn-primary" type="button"><span
-                            class="btn-text">win 32bit</span></button></a>
+                        type="button"><span class="btn-text">64-bit x64</span></button></a>
+                    <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.5.2/npp.8.5.2.Installer.exe"><button class="btn btn-sm btn-primary" type="button"><span
+                            class="btn-text">32-bit x86</span></button></a>
+                            <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.5.2/npp.8.5.2.Installer.arm64.exe"><button class="btn btn-sm btn-primary" type="button"><span
+                                class="btn-text">ARM 64</span></button></a>
             </div>
         </div>
         <div class="cardnav">
             <button class="traybuttons" type="button">
-            <div class="icon-sm"> <img src="icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
+            <div class="icon-sm"> <img src="../../icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
         </div>
             </button>
             <button class="traybuttons" type="button">
-                <div class="icon-sm"> <img src="icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
+                <div class="icon-sm"> <img src="../../icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
             </div>
                 </button>
         <div class="timetray" id="current-time">
