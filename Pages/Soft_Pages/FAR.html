@@ -694,8 +694,8 @@ canvas
             // call setCanvasDimensions on page load and add a resize event listener to recall draw function
             setCanvasDimensions();
             window.addEventListener("resize", () => {
-              window.cancelAnimationFrame(requestId);
               setCanvasDimensions();
+              window.cancelAnimationFrame(requestId);
               draw();
             });
           
