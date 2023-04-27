@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>App Hub Home</title>
 <style>
 @font-face {
     font-family: 'Windows 95';
@@ -354,6 +354,11 @@ body {
     margin-left: 120px;
     margin-right: 50px;
 }
+.card-text2{
+  text-align: left;
+  margin-top: 1%;
+  margin-left: 2%;
+}
 .myUL{
     text-align: left;
     margin-left: 120px;
@@ -521,13 +526,186 @@ body {
       .highlight {
         color: black;
       }
+
+.cardlist {
+  height: 50vh;
+  width: 150vh;
+  /* Center horizontally and vertically */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Add a border and padding */
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #393939;
+  border-bottom: 2px solid #393939;
+  border-radius: 0;
+  background: #C0C0C0;
+}
+        
+.cardlist-body::-webkit-scrollbar {
+  display: none;
+}
+.cardlist-body:hover::-webkit-scrollbar {
+  display: initial;
+  height: 5px;
+  width: 5px;
+}
+
+        @media only screen and (max-height: 400px) {
+  .cardlist {
+    height: 40vh;
+  }
+}
+@media only screen and (max-width: 100vh) {
+  .cardlist {
+    width: auto;
+  }
+}
+
+/* Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Thumb (the draggable object inside the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* On hover, set a darker background color for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #b0acac;
+}
+
+      .cardlist-primary .cardlist-header {
+    background: #C0C0C0;
+ }
+
+ 
+ .cardlist-tertiary .cardlist-header {
+     background: #000181;
+     color: white;
+ }
+
+ .cardlist-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #808080;
+    font-size: .65rem;
+    padding: 5px;
+    color: #C9C9C9;
+    border-radius: 0;
+    border: 2px solid #BDBDBD;
+    text-align: center;
+ }
+
+ .cardlist-header .icon {
+    position: absolute;
+    top: -5px;
+    left: -3px;
+}
+.cardlist-body {
+     height: calc(50vh - 25px); /* Set the height to fill 50% of the viewport height minus the height of the header */
+     overflow-y: scroll; /* Enable a vertical scrollbar for the cardlist body content */
+     padding: 10px 7px;
+     border-top: 2px solid #BDBDBD;
+     border-left: 3px solid #BDBDBD;
+     border-right: 3px solid #BDBDBD;
+     border-bottom: 2px solid #bdbdbd;
+     background-color: #ffffff ;
+ }
+      /* Style the list inside the box */
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+li {
+    margin-bottom: 10px;
+}
+.sepbar {
+        /* Add horizontal line below each item */
+        border-bottom: 20px solid rgb(117, 114, 114);
+        padding-bottom: 20px;
+        position: relative;
+        margin-left: -7px;
+        margin-right: -7px;
+}
+.continue-link {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        color: #eeeaea;
+        padding: 0 10px;
+}
+#object2 {
+  width: 70px; /* replace with your desired width */
+  height: auto; /* set to 'auto' to keep aspect ratio */
+  margin-left: 2%;
+}
 </style>
 </head>
 <body>
     <video id="bg-video" autoplay muted loop></video>
     <audio id="myAudio">
-        <source src="Gorillaz - Rhinestone Eyes (Lyrics) (128 kbit s) (via Skyload).audio.m4a" type="audio/mpeg">
+        <source src="../Gorillaz - Rhinestone Eyes (Lyrics) (128 kbit s) (via Skyload).audio.m4a" type="audio/mpeg">
     </audio>
+    <div class="cardlist cardlist-tertiary">
+        <div class="cardlist-header"> Applications List </div>
+        <div class="cardlist-body">
+        <ul>
+            <li>
+              <div style="display: flex;">
+                <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
+                <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+              </div>
+                <div class="sepbar">
+                <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                </div>
+              </li> 
+            <li>
+              <div style="display: flex;">
+                <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
+                <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+              </div>
+                <div class="sepbar">
+                <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                </div>
+              </li>
+              <li>
+                <div style="display: flex;">
+                  <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
+                  <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                </div>
+                  <div class="sepbar">
+                  <a href="../Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                  </div>
+                </li>
+                <li>
+                  <div style="display: flex;">
+                    <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
+                    <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                  </div>
+                    <div class="sepbar">
+                    <a href="../Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div style="display: flex;">
+                      <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
+                      <div class="../Soft_Pages/f.lux.html">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                    </div>
+                      <div class="sepbar">
+                      <a href="../Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                      </div>
+                    </li>
+                         
+          </ul>
+        </div>
+      </div>
         <div class="cardnav">
             <button class="traybuttons" type="button">
                 <div class="icon-sm"> <img src="../icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
@@ -544,8 +722,8 @@ body {
                 <span id="login-btn" class="sigin">Login</span>
                     <div id="list">
                       <ul>
-                        <li><a href="#" class="highlight">Sign In</a></li>
-                        <li><a href="#" class="highlight">Sign On</a></li>
+                        <li><a href="Login_Page.html" class="highlight">Log In</a></li>
+                        <li><a href="Registration_Page.html" class="highlight">Register</a></li>
                       </ul>
                     </div>
             </div>
@@ -587,7 +765,7 @@ body {
            var video = document.getElementById("bg-video");
            var videos = ["twilight-forest-pixel-moewalls.com.mp4", "winter-in-the-forest.mp4", "yellowstone-pixel-moewalls.com.mp4"]; // replace with the filenames of your videos
            var randomIndex = Math.floor(Math.random() * videos.length);
-           var selectedVideo = "Bg Vid/" + videos[randomIndex];
+           var selectedVideo = "../Bg Vid/" + videos[randomIndex];
            video.setAttribute("src", selectedVideo);
 
            var audio = document.getElementById("myAudio");

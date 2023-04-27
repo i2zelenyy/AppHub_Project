@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>App Hub VLCplayer</title>
 <style>
 @font-face {
     font-family: 'Windows 95';
-    src: url('../Proto1/fonts/w-95-sans-serif.woff2') format('woff2'),
-        url('../Proto1/fonts/w-95-sans-serif.woff') format('woff');
+    src: url('../../fonts/w-95-sans-serif.woff2') format('woff2'),
+        url('../../fonts/w-95-sans-serif.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -519,39 +519,39 @@ canvas
 <script>
     const images = [
         {
-            src: 'icons_32x32/discord.png',
+            src: '../../icons_32x32/discord.png',
             alt: 'discord'
         },
         {
-            src: 'icons_32x32/clock.png',
+            src: '../../icons_32x32/clock.png',
             alt: 'clock'
         },
         {
-            src: 'icons_32x32/music.png',
+            src: '../../icons_32x32/music.png',
             alt: 'music'
         }
         ,{
-            src: 'icons_32x32/chrome.png',
+            src: '../../icons_32x32/chrome.png',
             alt: 'chrome'
         }
         ,{
-            src: 'icons_32x32/calendar.png',
+            src: '../../icons_32x32/calendar.png',
             alt: 'calendar'
         }
         ,{
-            src: 'icons_32x32/flop_drive.png',
+            src: '../../icons_32x32/flop_drive.png',
             alt: 'flop_drive'
         }
         ,{
-            src: 'icons_32x32/movies.png',
+            src: '../../icons_32x32/movies.png',
             alt: 'movies'
         }
         ,{
-            src: 'icons_32x32/minecraft.png',
+            src: '../../icons_32x32/minecraft.png',
             alt: 'minecraft'
         }
         ,{
-            src: 'icons_32x32/world.png',
+            src: '../../icons_32x32/world.png',
             alt: 'world'
         }
     ];
@@ -581,7 +581,7 @@ canvas
                 VLC media player
             </div>
             <div class="card-body bg-white">
-                <img id="object1" src="../Proto1/icons/VLC.png" alt="far"></img>
+                <img id="object1" src="../../icons/VLC.png" alt="far"></img>
                 <p class="card-text1">VLC is a free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.</p>
                 <ul class="myUL">
                     <li>Plays everything;</li>
@@ -603,11 +603,11 @@ canvas
         </div>
         <div class="cardnav">
             <button class="traybuttons" type="button">
-            <div class="icon-sm"> <img src="../Proto1/icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
+            <div class="icon-sm"> <img src="../../icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
         </div>
             </button>
             <button class="traybuttons" type="button">
-                <div class="icon-sm"> <img src="../Proto1/icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
+                <div class="icon-sm"> <img src="../../icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
             </div>
                 </button>
         <div class="timetray" id="current-time">
@@ -693,8 +693,8 @@ canvas
             // call setCanvasDimensions on page load and add a resize event listener to recall draw function
             setCanvasDimensions();
             window.addEventListener("resize", () => {
-              window.cancelAnimationFrame(requestId);
               setCanvasDimensions();
+              window.cancelAnimationFrame(requestId);
               draw();
             });
           
