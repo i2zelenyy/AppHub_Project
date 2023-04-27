@@ -500,7 +500,7 @@ body {
         border-bottom: 2px solid #393939;
         background: #C0C0C0;
         position: absolute;
-        top: calc(-100% - 35px); 
+        top: calc(-100% - 33px); 
         right: 82px;
         transform: none;
         display: none;
@@ -528,7 +528,7 @@ body {
       }
 
 .cardlist {
-  height: 50vh;
+  height: 53vh;
   width: 150vh;
   /* Center horizontally and vertically */
   position: absolute;
@@ -553,12 +553,12 @@ body {
   width: 5px;
 }
 
-        @media only screen and (max-height: 400px) {
+@media only screen and (max-height: 54vh) {
   .cardlist {
-    height: 40vh;
+    height: auto;
   }
 }
-@media only screen and (max-width: 100vh) {
+@media only screen and (max-width: 151vh) {
   .cardlist {
     width: auto;
   }
@@ -611,6 +611,7 @@ body {
      height: calc(50vh - 25px); /* Set the height to fill 50% of the viewport height minus the height of the header */
      overflow-y: scroll; /* Enable a vertical scrollbar for the cardlist body content */
      padding: 10px 7px;
+     position: relative;
      border-top: 2px solid #BDBDBD;
      border-left: 3px solid #BDBDBD;
      border-right: 3px solid #BDBDBD;
@@ -623,7 +624,7 @@ body {
         padding: 0;
         list-style: none;
       }
-li {
+      #app.list {
     margin-bottom: 10px;
 }
 .sepbar {
@@ -644,6 +645,7 @@ li {
 #object2 {
   width: 70px; /* replace with your desired width */
   height: auto; /* set to 'auto' to keep aspect ratio */
+  margin-top: 20px;
   margin-left: 2%;
 }
 </style>
@@ -657,7 +659,7 @@ li {
         <div class="cardlist-header"> Applications List </div>
         <div class="cardlist-body">
         <ul>
-            <li>
+            <li id="app.list">
               <div style="display: flex;">
                 <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
                 <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
@@ -666,43 +668,42 @@ li {
                 <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
                 </div>
               </li> 
-            <li>
-              <div style="display: flex;">
-                <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
-                <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
-              </div>
-                <div class="sepbar">
-                <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
-                </div>
-              </li>
-              <li>
+              <li id="app.list">
                 <div style="display: flex;">
                   <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
                   <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
                 </div>
                   <div class="sepbar">
-                  <a href="../Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                  <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
                   </div>
                 </li>
-                <li>
+                <li id="app.list">
                   <div style="display: flex;">
                     <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
                     <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
                   </div>
                     <div class="sepbar">
-                    <a href="../Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                    <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
                     </div>
                   </li>
-                  <li>
+                  <li id="app.list">
                     <div style="display: flex;">
                       <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
-                      <div class="../Soft_Pages/f.lux.html">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                      <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
                     </div>
                       <div class="sepbar">
-                      <a href="../Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                      <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
                       </div>
                     </li>
-                         
+                    <li id="app.list">
+                      <div style="display: flex;">
+                        <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
+                        <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                      </div>
+                        <div class="sepbar">
+                        <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                        </div>
+                      </li>                         
           </ul>
         </div>
       </div>
