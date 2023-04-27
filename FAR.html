@@ -581,7 +581,7 @@ canvas
                 FAR Manager
             </div>
             <div class="card-body bg-white">
-                <img id="object1" src="../Proto1/icons/far.png" alt="far"></img>
+                <img id="object1" src="icons/far.png" alt="far"></img>
                 <p class="card-text1">Far Manager is a program for managing files and archives in Windows operating systems.
                     Far Manager works in text mode and provides 
                     a simple and intuitive interface for performing most of the necessary actions: </p>
@@ -604,11 +604,11 @@ canvas
         </div>
         <div class="cardnav">
             <button class="traybuttons" type="button">
-            <div class="icon-sm"> <img src="../Proto1/icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
+            <div class="icon-sm"> <img src="icons_32x32/this_computer.png" alt="image"><p class="traytext-1">Home</p>
         </div>
             </button>
             <button class="traybuttons" type="button">
-                <div class="icon-sm"> <img src="../Proto1/icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
+                <div class="icon-sm"> <img src="icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
             </div>
                 </button>
         <div class="timetray" id="current-time">
@@ -694,8 +694,8 @@ canvas
             // call setCanvasDimensions on page load and add a resize event listener to recall draw function
             setCanvasDimensions();
             window.addEventListener("resize", () => {
-              window.cancelAnimationFrame(requestId);
               setCanvasDimensions();
+              window.cancelAnimationFrame(requestId);
               draw();
             });
           
