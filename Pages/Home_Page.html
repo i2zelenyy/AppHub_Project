@@ -655,23 +655,28 @@ ul  {
   margin-left: 2%;
 }
 #app-logo{
+    position: static;
     display: flex;
     justify-content: center;
     margin-top: 20px;
     color: #ffffff;
     font-weight: bold;
     font-size: 40px; 
-    letter-spacing: 5px;
+    letter-spacing: 10px;
     text-align: center;
+    -webkit-text-stroke: 2px rgb(37, 37, 37);
+    text-stroke: 2px rgb(17, 17, 17);
 }
 #hub-logo{
     background-color: #ffa31a;
     margin-left: 5px;
     letter-spacing: 5px;
     color: #1b1b1b;
-    padding: 3px;
+    padding: 8px;
     border-radius: 3px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #community-sty{
     color: #fff;
@@ -711,12 +716,6 @@ ul  {
   #logo-box{
     width: 90%;
   }
-  #app-logo {
-    font-size: 30px;
-  }
-  #hub-logo {
-    font-size: 30px;
-  }
   #community-sty{
     font-size: 10px;
     letter-spacing: 4px;
@@ -726,7 +725,7 @@ ul  {
 </head>
 <body>
     <video id="bg-video" autoplay muted loop></video>
-    <audio id="myAudio">
+    <audio id="myAudio" loop>
         <source src="../Gorillaz - Rhinestone Eyes (Lyrics) (128 kbit s) (via Skyload).audio.m4a" type="audio/mpeg">
     </audio>
     <div class="logo-box">
