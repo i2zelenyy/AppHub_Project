@@ -592,6 +592,7 @@ body {
      border-left: 3px solid #BDBDBD;
      border-right: 3px solid #BDBDBD;
      border-bottom: 2px solid #bdbdbd;
+     background-color: white;
  }
  @media only screen and (max-height: 54vh) {
   .cardlist-body {
@@ -663,27 +664,7 @@ ul  {
     font-size: 40px; 
     letter-spacing: 10px;
     text-align: center;
-}
-#hub-logo{
-    background-color: #ffa31a;
-    margin-left: 5px;
-    letter-spacing: 5px;
-    color: #1b1b1b;
-    padding: 8px;
-    border-radius: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#community-sty{
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    letter-spacing: 4px;
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 15px;
-    text-align: center;
+    -webkit-text-stroke: 2px rgb(37, 37, 37);
 }
 .logo-box{
   width: 1250px;
@@ -701,21 +682,10 @@ ul  {
   #app-logo {
     font-size: 20px;
   }
-  #hub-logo {
-    font-size: 20px;
-  }
-  #community-sty{
-    font-size: 10px;
-    letter-spacing: 4px;
-  }
 }
 @media only screen and (max-width: 145vh) {
   #logo-box{
     width: 90%;
-  }
-  #community-sty{
-    font-size: 10px;
-    letter-spacing: 4px;
   }
 }
 </style>
@@ -726,9 +696,8 @@ ul  {
         <source src="../Gorillaz - Rhinestone Eyes (Lyrics) (128 kbit s) (via Skyload).audio.m4a" type="audio/mpeg">
     </audio>
     <div class="logo-box">
-      <div id="app-logo"> App <span id="hub-logo">HUB</span></div>
-      <div id="community-sty">C O M M U N I T Y</div>
-      </div>
+      <div id="app-logo"> <img src="../icons/Logo.png"></div>
+    </div>
     <div class="cardlist cardlist-tertiary">
         <div class="cardlist-header"> Applications List </div>
         <div class="cardlist-body">
@@ -736,7 +705,7 @@ ul  {
             <li id="app.list">
               <div style="display: flex;">
                 <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
-                <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                <div class="card-text2">f.lux is a blue light controller for your screen.</div>
               </div>
                 <div class="sepbar">
                 <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
@@ -744,40 +713,58 @@ ul  {
               </li> 
               <li id="app.list">
                 <div style="display: flex;">
-                  <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
-                  <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                  <img id="object2" src="../icons/far.png" alt="far"></img>
+                  <div class="card-text2">Far Manager is a program for managing files and archives in Windows operating systems.</div>
                 </div>
                   <div class="sepbar">
-                  <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                  <a href="Soft_Pages/FAR.html" class="continue-link">Continue...</a>
                   </div>
                 </li>
                 <li id="app.list">
                   <div style="display: flex;">
-                    <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
-                    <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                    <img id="object2" src="../icons/Notepad++.png" alt="far"></img>
+                    <div class="card-text2">Notepad++ is a free source code editor and Notepad.</div>
                   </div>
                     <div class="sepbar">
-                    <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                    <a href="Soft_Pages/Notepad++.html" class="continue-link">Continue...</a>
                     </div>
                   </li>
                   <li id="app.list">
                     <div style="display: flex;">
-                      <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
-                      <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                      <img id="object2" src="../icons/PuTTy.png" alt="far"></img>
+                      <div class="card-text2">PuTTy is a SSH and telnet client</div>
                     </div>
                       <div class="sepbar">
-                      <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                      <a href="Soft_Pages/PuTTy.html" class="continue-link">Continue...</a>
                       </div>
                     </li>
                     <li id="app.list">
                       <div style="display: flex;">
-                        <img id="object2" src="../icons/F.lux_logo.png" alt="far"></img>
-                        <div class="card-text2">f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.</div>
+                        <img id="object2" src="../icons/VLC.png" alt="far"></img>
+                        <div class="card-text2">VLC is a free and open source cross-platform multimedia player.</div>
                       </div>
                         <div class="sepbar">
-                        <a href="Soft_Pages/f.lux.html" class="continue-link">Continue...</a>
+                        <a href="Soft_Pages/VLCplayer.html" class="continue-link">Continue...</a>
                         </div>
-                      </li>                         
+                      </li>
+                      <li id="app.list">
+                        <div style="display: flex;">
+                          <img id="object2" src="../icons/WINrar.png" alt="far"></img>
+                          <div class="card-text2">WinRAR is a powerful compression tool.</div>
+                        </div>
+                          <div class="sepbar">
+                          <a href="Soft_Pages/WINrar.html" class="continue-link">Continue...</a>
+                          </div>
+                        </li>
+                        <li id="app.list">
+                          <div style="display: flex;">
+                            <img id="object2" src="../icons/Rufus.png" alt="far"></img>
+                            <div class="card-text2">Create bootable USB drives the easy way</div>
+                          </div>
+                            <div class="sepbar">
+                            <a href="Soft_Pages/Rufus.html" class="continue-link">Continue...</a>
+                            </div>
+                          </li>                            
           </ul>
         </div>
       </div>
@@ -838,7 +825,7 @@ ul  {
             });
 
            var video = document.getElementById("bg-video");
-           var videos = ["twilight-forest-pixel-moewalls.com.mp4", "winter-in-the-forest.mp4", "yellowstone-pixel-moewalls.com.mp4"]; // replace with the filenames of your videos
+           var videos = ["twilight-forest-pixel-moewalls.com.mp4", "winter-in-the-forest.mp4", "yellowstone-pixel-moewalls.com.mp4", "aspen-lake-pixel-moewalls.com.mp4", "calm-winter-pixel-moewalls.com.mp4", "fallen-leaves-lake-moewalls.com.mp4", "fish-in-rock-pond-moewalls.com.mp4", "forest-pond-pixel-moewalls.com.mp4", "golden-forest-pixel-moewalls.com.mp4", "leaves-floating-on-water-surface-moewalls.com.mp4", "red-moon-rise-pixel-moewalls.com.mp4", "sky-and-river-in-the-night-pixel-moewalls.com.mp4", "winter-river-pixel-moewalls.com.mp4"]; // replace with the filenames of your videos
            var randomIndex = Math.floor(Math.random() * videos.length);
            var selectedVideo = "../Bg Vid/" + videos[randomIndex];
            video.setAttribute("src", selectedVideo);
