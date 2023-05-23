@@ -13,6 +13,11 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'CustomFont';
+    src: url('path/to/font.ttf') format('truetype');
+    /* Additional font formats can be added here if needed */
+}
 
 .bg-white {
     background-color: #ffffff !important;
@@ -494,13 +499,13 @@ body {
       }
 
       #list {
-        border-top: 2px solid #000000;
-        border-left: 2px solid #000000;
-        border-right: 2px solid #393939;
-        border-bottom: 2px solid #393939;
-        background: #C0C0C0;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        border-right: 2px solid #383838;
+        border-bottom: 2px solid #000000;
+        background: #afabab;
         position: absolute;
-        top: calc(-100% - 33px); 
+        top: calc(-100% - 35px); 
         right: 82px;
         transform: none;
         display: none;
@@ -530,12 +535,10 @@ body {
 .cardlist {
   height: 53vh;
   width: 1250px;
-  /* Center horizontally and vertically */
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Add a border and padding */
   border-top: 2px solid white;
   border-left: 2px solid white;
   border-right: 2px solid #393939;
@@ -654,49 +657,132 @@ ul  {
   margin-top: 20px;
   margin-left: 2%;
 }
+
 #app-logo{
-    position: static;
     display: flex;
     justify-content: center;
     margin-top: 20px;
     color: #ffffff;
     font-weight: bold;
-    font-size: 40px; 
-    letter-spacing: 10px;
+    font-size: 50px; 
+    letter-spacing: 5px;
     text-align: center;
-    -webkit-text-stroke: 2px rgb(37, 37, 37);
+    font-size: 80px;
+    font-family: 'CustomFont', sans-serif;
+    -webkit-box-reflect: below -0.0001em linear-gradient(transparent,#0004);
 }
+#hub-logo{
+    background-color: #ffa31a;
+    margin-left: 5px;
+    letter-spacing: 5px;
+    color: #1b1b1b;
+    padding: 3px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 80px;
+    font-family: 'CustomFont', sans-serif;
+    -webkit-box-reflect: below -0.01px linear-gradient(transparent,#0004); 
+}
+
 .logo-box{
   width: 1250px;
-  height: 15vh;
+  height: 20vh;
   position: absolute;
   top: 15%;
-  margin-left: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-@media only screen and (max-height: 15vh) {
+
+@media only screen and (max-height: 10px) {
   #logo-box{
     height: 10%;
   }
   #app-logo {
-    font-size: 20px;
+    font-size: 30px;
+  }
+  #hub-logo {
+    font-size: 30px;
   }
 }
 @media only screen and (max-width: 145vh) {
   #logo-box{
     width: 90%;
   }
+  #app-logo {
+    font-size: 50px;
+  }
+  #hub-logo {
+    font-size: 50px;
+  }
 }
+
+.train-container {
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .train-letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(100%);
+      animation: train-animation 0.9s forwards;
+    }
+    .zoom-animation {
+      display: inline-block;
+      opacity: 0;
+      transform: scale(0);
+      animation: zoom-animation 0.9s forwards;
+    }
+    @keyframes zoom-animation {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes train-animation {
+      0% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 </style>
+<script>
+  //// Logo animation script
+  window.addEventListener('DOMContentLoaded', () => {
+    const trainLetters = document.querySelectorAll('.train-letter');
+    let delay = 0;
+
+    trainLetters.forEach((letter, index) => {
+      letter.style.animationDelay = delay + 's';
+      delay += 0.2;
+      
+      if (index === trainLetters.length - 1) {
+        const zoomAnimation = document.querySelector('.zoom-animation');
+        zoomAnimation.style.animationDelay = delay + 's';
+      }
+    });
+  });
+</script>
 </head>
 <body>
     <video id="bg-video" autoplay muted loop></video>
-    <audio id="myAudio" loop>
-        <source src="../Gorillaz - Rhinestone Eyes (Lyrics) (128 kbit s) (via Skyload).audio.m4a" type="audio/mpeg">
-    </audio>
+    <audio id="bg-Audio" autoplay loop></audio>
     <div class="logo-box">
-      <div id="app-logo"> <img src="../icons/Logo.png"></div>
+    <div id="app-logo"> 
+      <span class="train-letter">A</span>
+      <span class="train-letter">p</span>
+      <span class="train-letter">p</span> 
+      <span id="hub-logo" class="zoom-animation">HUB</span>
+    </div>
     </div>
     <div class="cardlist cardlist-tertiary">
         <div class="cardlist-header"> Applications List </div>
@@ -830,7 +916,11 @@ ul  {
            var selectedVideo = "../Bg Vid/" + videos[randomIndex];
            video.setAttribute("src", selectedVideo);
 
-           var audio = document.getElementById("myAudio");
+           var audio = document.getElementById("bg-Audio");
+           var audios = ["Sumeru OST  Forest of Jnana.mp3","Realm of Tranquil Eternity.mp3","Sumeru Live Symphony Performance.mp3"];
+           var randomIndex = Math.floor(Math.random() * audios.length);
+           var selectedVideo = "../Bg Audio/" + audios[randomIndex];
+           audio.setAttribute("src", selectedVideo);
            var playButton = document.getElementById("playButton");
 
           
