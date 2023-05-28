@@ -1,248 +1,933 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <link rel="stylesheet" href="Untitled-1">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Hub Register</title>
-<style>
-@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
- html, body {
-	 height: 100%;
+  <style>
+    @font-face {
+    font-family: 'Windows 95';
+    src: url('../fonts/w-95-sans-serif.woff2') format('woff2'),
+        url('../fonts/w-95-sans-serif.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-color: #2e2b2b;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; 
+    }
+    section .row {
+      position: relative;
+      top: -90%;
+      right: 10%;
+      width: 100%;
+      display: flex;
+      padding: 10px 0;
+      white-space: nowrap;
+      font-size: 64px;
+      transform: rotate(-30deg);
+    }
+    section .row:nth-child(odd) div {
+      animation: animate 40s linear infinite;
+      animation-delay: -40s;
+    }
+    section .row:nth-child(odd) div:nth-child(2) {
+      animation: animate2 40s linear infinite;
+      animation-delay: -20s;
+    }
+    @keyframes animate {
+      0%
+      {
+        transform: translateX(100%);
+      }
+      100%
+      {
+        transform: translateX(-100%);
+      }
+    }
+    @keyframes animate2 {
+      0%
+      {
+        transform: translateX(0%);
+      }
+      100%
+      {
+        transform: translateX(-200%);
+      }
+    }  
+    section .row:nth-child(even) div {
+      animation: animate3 40s linear infinite;
+      animation-delay: -40s;
+    }
+    section .row:nth-child(even) div:nth-child(2) {
+      animation: animate4 40s linear infinite;
+      animation-delay: -20s;
+    }
+    @keyframes animate3 {
+      0%
+      {
+        transform: translateX(-100%);
+      }
+      100%
+      {
+        transform: translateX(100%);
+      }
+    }
+    @keyframes animate4 {
+      0%
+      {
+        transform: translateX(-200%);
+      }
+      100%
+      {
+        transform: translateX(0%);
+      }
+    }  
+    section .row div img {
+      height: 64px;
+      width: 64px;
+      padding: 5px 20px;
+      transition: 1s;
+      cursor: default;
+      opacity: 0.06;
+    }
+    section .row div  img:hover {
+      opacity: 1;
+      text-shadow: 0 0 120px rgb(0, 81, 255);
+    }
+    .sectionform {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60vw;
+      height: 80vh;
+      top: 10%;
+      left: 20%;
+      gap: 2px;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+    .form {
+      height: 500px;
+      width: 450px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      box-shadow: 0 15px 35px rgba(0,0,0,5);
+      transform: translate(-50%, -50%);
+      border-top: 2px solid white;
+      border-left: 2px solid white;
+      border-right: 2px solid #393939;
+      border-bottom: 2px solid #393939;
+      border-radius: 0;
+      background: #C0C0C0;
+      z-index: 5;
+    }
+
+  .form-tertiary .form-header {
+      background: #000181;
+      color: white;
+    }
+
+  .form-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #808080;
+    font-size: .65rem;
+    padding: 5px;
+    color: #C9C9C9;
+    border-radius: 0;
+    border: 2px solid #BDBDBD;
+    text-align: center;
+    }  
+
+  .form-header .icon {
+    position: absolute;
+    top: -5px;
+    left: -3px;
+    }
+  .form-body {
+     height: 440px;
+     overflow: hidden;
+     padding: 10px 7px;
+     position: relative;
+     border-top: 2px solid #BDBDBD;
+     border-left: 3px solid #BDBDBD;
+     border-right: 3px solid #BDBDBD;
+     border-bottom: 2px solid #bdbdbd;
+     background-color: rgb(196, 196, 196);
+    }
+    .form-box {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center; 
+      width: calc(100% - 20px); 
+      box-sizing: border-box;
+    }
+
+    .label-box {
+      font-size: 0.75em;
+      color: #000000;
+    }
+
+    .input-box {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      width: 100%; 
+    }
+
+    .email-input,
+    .password-input,
+    .repeatpassword-input {
+      flex: 1; 
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #000000;
+      background-color: transparent;
+      color: #706d6d;
+      background-color: white;
+      font-size: 0.65em;
+    }
+
+    .email-input:focus + .label-box,
+    .password-input:focus + .label-box,
+    .repeatpassword-input:focus + .label-box {
+      opacity: 0;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%; 
+    }
+
+    .checkbox-box {
+      display: flex;
+      align-items: center;
+      color: #000181;
+    }
+
+    .checkbox-input {
+      margin-right: 10px;
+      position: relative;
+      width: 16px;
+      height: 16px;
+      appearance: none;
+      background-color: transparent;
+      border: 1px solid #000000;
+      cursor: pointer;
+    }
+    .checkbox-input:checked:after {
+      font-family: "Calibri", sans-serif; 
+      content: "X";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.65em;
+      color: #000000;
+    }
+
+    .checkbox-label {
+      color: #000000;
+      font-size: 0.7em;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .terms {
+      color: #0e19b1;
+      font-size: 0.7em;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .terms:hover {
+      text-decoration: underline;
+    }
+
+    .Register-button {
+      width: 100%; 
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      position: relative;
+      transition: all 0.2s ease;
+      letter-spacing: 0.025em;
+      font-size: .6rem;
+      border-radius: 0.125rem;
+      padding: .6rem 2rem;
+      max-height: 37px;
+      color: #000;
+      background-color: #c0c0c0;
+      border-top: 2px solid white;
+      border-left: 2px solid white;
+      border-right: 2px solid #858585;
+      border-bottom: 2px solid #858585;
+    }
+
+    .Register-button:active {
+      border-top: 2px solid rgb(196, 196, 196);
+      border-left: 2px solid rgb(196, 196, 196);
+      border-right: 2px solid rgb(196, 196, 196);
+      border-bottom: 2px solid rgb(196, 196, 196);;
+    }
+
+    .form-footer {
+      width: 100%;
+      padding: 10px;
+      font-size: 0.6em;
+      border: none;
+      border-radius: 4px;
+      color: #000000;
+      cursor: pointer;
+      margin-top: 15px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      cursor: default;
+    }
+    .login-account-link {
+      margin-left: 10px;
+      color: #1613c0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .login-account-link:hover {
+      text-decoration: underline;
+    }
+
+    .font-weight-normal {
+      font-weight: 400;
+    }
+    .font-weight-bold {
+      font-weight: 700;
+    }
+    .logobox {
+      position: absolute;
+      display: flex;
+      width: calc(18.25vw - 15px);
+      height: calc(12.25vh - 15px);
+      background: #2e2b2b80;
+      z-index: 2;
+      left: 2%;
+      top: 2%;
+    }
+    .logobox img {
+      opacity: 1;
+      width: calc(18.25vw - 15px);
+      height: calc(12.25vh - 15px);
+      padding: 0;
+      cursor: pointer;
+    }
+
+
+
+.bg-white {
+    background-color: #ffffff !important;
 }
- body {
-	 font-family: 'Press Start 2P', cursive;
-	 font-size: 16px;
-	 font-weight: bold;
-	 color: #fff;
-	 background-color: #018281;
-	 margin-top: -15%;
+
+.btn {
+    position: relative;
+    transition: all 0.2s ease;
+    letter-spacing: 0.025em;
+    font-size: .6rem;
+    border-radius: 0.125rem;
+    padding: .6rem 2rem;
+    max-height: 37px;
 }
- .myIMG{
-	position: fixed;
-  	right: 0;
- 	bottom: 0;
-	min-width: 100%;
-  	min-height: 100%;
-  	z-index: -2;
+
+.btn:before,
+.btn:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    background: transparent;
+    z-index: 9;
+    top: 0;
+    left: 0;
+}
+
+.btn:before {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #858585;
+    border-bottom: 2px solid #858585;
+}
+
+.btn:not(:disabled):not(.disabled):active:before,
+.btn:not(:disabled):not(.disabled):active:focus:before {
+    border-color: transparent;
+    color: #000;
+}
+
+.btn .btn-text {
+    border: 1px solid transparent;
+    font-family: 'Windows 95';
+}
+
+.btn:not(:disabled):not(.disabled):active .btn-text,
+.btn:not(:disabled):not(.disabled):active:focus .btn-text {
+    border: 1px dotted #000;
+    font-family: 'Windows 95';
+}
+
+.border-dark {
+    border: 2px solid #0A0A0A !important;
+}
+
+.border-dark-lg {
+    border: 3px solid #0A0A0A !important;
+}
+
+.btn.btn-pill {
+    border-radius: 2rem;
+}
+
+.btn.btn-circle {
+    border-radius: 50%;
+}
+
+.btn-group .btn,
+.input-group .btn {
+    margin-right: 0;
+    transform: translateY(0);
+}
+
+.btn .toggle-arrow {
+    transition: all 0.2s ease;
+}
+
+.btn[aria-expanded="true"] .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+.btn-xs,
+.btn-xs i {
+    font-size: 0.75rem ;
+}
+
+.btn-sm,
+.btn-group-sm>.btn,
+.btn-sm i,
+.btn-group-sm>.btn i {
+    font-size: 0.53rem;
+    padding: .4rem 1.6rem;
+    max-height: 29px;
+}
+
+
+
+
+.btn-primary {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #a0a0a0;
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #a0a0a0;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: none
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #c0c0c0;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #c0c0c0;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+
+
+
+.btn-tertiary {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:hover {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:focus,
+.btn-tertiary.focus {
+    box-shadow: none;
+}
+
+.btn-tertiary.disabled,
+.btn-tertiary:disabled {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:not(:disabled):not(.disabled):active,
+.btn-tertiary:not(:disabled):not(.disabled).active,
+.show>.btn-tertiary.dropdown-toggle {
+    color: #ffffff;
+    background-color: #000181;
+    border-color: #000181;
+}
+
+.btn-tertiary:not(:disabled):not(.disabled):active:focus,
+.btn-tertiary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-tertiary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+
+/**
+ * = Cards
+ */
+
+ .card {
+     border-top: 2px solid white;
+     border-left: 2px solid white;
+     border-right: 2px solid #393939;
+     border-bottom: 2px solid #393939;
+     border-radius: 0;
+     background: #C0C0C0;
+     width: 70%;
+     margin: auto;
+     margin-top: 50px;
  }
-/* unvisited link */
- a:link {
-	 color: #fff;
-	 text-decoration: none;
-}
-/* visited link */
- a:visited {
-	 color: #fff;
-	 text-decoration: none;
-}
-/* mouse over link */
- a:hover {
-	 color: #ff00f0;
-	 text-decoration: none;
-}
-/* selected link */
- a:active {
-	 color: #4242e6;
-	 text-decoration: none;
-}
- .center {
-	 display: flex;
-	 align-items: center;
-	 justify-content: center;
-	 height: 100%;
-	 width: 100%;
-}
- h1 {
-	 display: block;
-	 font-size: 3em;
-	 margin: 0.6em 0;
-	 font-weight: bold;
+
+ .card-primary .card-header {
+    background: #C0C0C0;
+ }
+
+ 
+ .card-tertiary .card-header {
+     background: #000181;
+     color: white;
+ }
+
+ .card-header {
+    position: relative;
+    background: #808080;
+    font-size: .65rem;
+    padding: 4px;
+    color: #C9C9C9;
+    border-radius: 0;
+    border: 2px solid #BDBDBD;
+ }
+
+ .card-header .icon {
+    position: absolute;
+    top: -5px;
+    left: -3px;
 }
 
-.register-box{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 420px;
-	padding: 40px;
-	transform: translate(-50%,-50%);
-	background: rgba(0, 0, 0, .5);
-	box-sizing: border-box;
-	box-shadow: 0 15px 25px rgba(0,0,0,.6);
-	border-radius: 10px;
-}
-.register-box h2{
-	margin: 0 0 30px;
-	padding: 0;
-	color: #fff;
-	text-align: center;
-}
-.register-box .user-box {
-	position: relative;
-}
-.register-box .user-box input {
-	width: 100%;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #fff;
-	margin-bottom: 30px;
-	border: none;
-	border-bottom: 1px solid #fff;
-	outline: none;
-	background: transparent;
-}
-.register-box .user-box label {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #fff;
-	pointer-events: none;
-	transition: .5s;
-}
-.register-box .user-box input:focus ~
-label,
-.register-box .user-box input:valid ~
-label {
-	top: -20px;
-	left: 0;
-	color: #018281;
-	font-size: 12px;
-}
-.register-box form a {
-	position: relative;
-	display: inline-block;
-	padding: 10px 20px;
-	color: #018281;
-	font-size: 16px;
-	text-decoration: none;
-	text-transform: uppercase;
-	overflow: hidden;
-	transition: .5s;
-	margin-top: 15px;
-	letter-spacing: 4px;
-}
-.register-box a:hover {
-	background: #018281;
-	color: #fff;
-	border-radius: 5px;
-	box-shadow: 0 0 5px #03e9f4,
-				0 0 25px #03e9f4,
-				0 0 50px #03e9f4,
-				0 0 100px #03e9f4;
-}
-.register-box a span {
-	position: absolute;
-	display: block;
-}
-.register-box a span:nth-child(1) {
-	top: 0;
-	left: -100px;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(90deg, transparent, #03e9f4);
-	animation: btn-anim1 1s linear infinite;
+ .card-body {
+     padding: 10px 7px;
+     border-top: 2px solid #BDBDBD;
+     border-left: 3px solid #BDBDBD;
+     border-right: 3px solid #BDBDBD;
+     border-bottom: 2px solid #bdbdbd;
+ }
+
+ .card-footer {
+    padding: 10px 7px;
+ }
+
+
+
+/**
+ * = Icons
+ */
+
+
+body,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Windows 95", sans-serif;
+    font-weight: 400;
 }
 
-@keyframes btn-anim1 {
-	0% {
-		left: -100%;
-	}
-	50%,100% {
-		left:100%
-	}
-}
-.register-box  a span:nth-child(2) {
-	top: -100%;
-	right: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(180deg, transparent, #03e9f4);
-	animation: btn-anim2 1s linear infinite;
-	animation-delay: .25s;
-}
-@keyframes btn-anim2 {
-	0% {
-		top: -100%;
-	}
-	50%, 100% {
-		top: 100%;
-	}
-}
-.register-box a span:nth-child(3) {
-	bottom: 0;
-	right: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(270deg, transparent, #03e9f4);
-	animation: btn-anim3 1s linear infinite;
-	animation-delay: .5s;
-}
-@keyframes btn-anim3 {
-	0% {
-		right: -100%;
-	}
-	50%, 100% {
-		right: 100%;
-	}
-}
-.register-box a span:nth-child(4) {
-	bottom: -100%;
-	left: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(360deg, transparent, #03e9f4);
-	animation: btn-anim4 1s linear infinite;
-	animation-delay: .75s;
-}
-#Back_To_Login {
-	color: #7bc3c3;
-	font-size: 12px;
-	margin-top: 55px;
-	text-align: center;
+p,
+ol li,
+ul li {
+    font-family: "Windows 95", sans-serif;
+    font-size: .6rem;
+    font-weight: 300;
+    line-height: 2;
 }
 
-#Back_To_Login_Button {
-	color: #7bc3c3;
-	font-size: 12px;
-	margin-top: 10px !important;
-	padding: 10px 20px;
-	letter-spacing: normal;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	
+a,
+.text-action {
+    color: #000181;
+    font-weight: 400;
 }
 
-@keyframes btn-anim4 {
-	0% {
-		bottom: -100%;
-	}
-	50%, 100% {
-		bottom: 100%
-	}
+a:hover,
+.text-action:hover {
+    color: #000181;
+    cursor: pointer;
 }
-</style>
-<main class="center">
-	<div class="register-box">
-		<h2>Register</h2>
-		<form>
-			<div class="user-box"><input type="text" name="" required=""><label>Username</label></div>
-			<div class="user-box"><input type="password" name="" required=""><label>Password</label></div>
-            <div class="user-box"><input type="password" name="" required=""><label>Repeat Password</label></div>
-            <div class="user-box"><input type="text" name="" required=""><label>Email</label></div>
-			<a href="Home_Page.html">
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-				Submit
-			  </a>
-			<p id="Back_To_Login">Already have an account?</p>
-			<a id="Back_To_Login_Button" href="Login_Page.html">Press here to Log In</a>
-		</form>
-	</div>
-  </main>
+
+
+
+
+
+@media (max-width: 991.98px) {
+    .display-2 {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .display-3 {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
+
+.text-tertiary .text-muted {
+    color: rgba(255, 127, 102, 0.7) !important;
+}
+
+.text-white,
+.text-white:hover {
+    color: #ffffff !important;
+}
+
+
+.card-text1{
+    text-align: left;
+    margin-left: 120px;
+    margin-right: 50px;
+}
+.myUL{
+    text-align: left;
+    margin-left: 120px;
+    margin-right: 50px;
+    margin-top: auto;
+}
+#object1 {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.cardnav {
+     border-top: 2px solid white;
+     border-left: 2px solid white;
+     border-right: 2px solid #393939;
+     border-bottom: 2px solid #393939;
+     border-radius: 0;
+     background: #C0C0C0;
+     position:fixed;
+     width: auto;
+     height: 35px;
+     bottom:0%;
+     width: 100%;
+     margin: 0%;
+     z-index: 2;
+     margin-bottom: 0;
+ }
+.traybuttons {
+    position: relative;
+    transition: all 0.2s ease;
+    letter-spacing: 0.025em;
+    font-size: .6rem;
+    border-radius: 0.125rem;
+    padding: .6rem 2rem;
+    color: #000;
+    background-color: #c0c0c0;
+    border-color: #a0a0a0;
+    font-size: 0.53rem;
+    padding: .4rem 1.6rem;
+    max-height: 29px;
+    padding: .6rem 2rem;
+    text-align: right;
+    width: 100px;
+}
+.traybuttons:before,
+.traybuttons:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    background: transparent;
+    z-index: 9;
+    top: 0;
+    left: 0;
+}
+
+.traybuttons:before {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #858585;
+    border-bottom: 2px solid #858585;
+}
+.start {
+    padding-bottom: 200px
+}
+.icon-sm {
+    transform: scale(.7);
+    margin-top: -13px;
+    margin-left: -240px;
+}
+.icon.icon-sm i,
+.icon.icon-sm svg {
+    font-size: 1.5rem;
+}
+.navro {
+  display: flex; 
+  align-items: flex-start; 
+}
+
+.navro-1 {
+  align-self: flex-end; 
+}
+.traytext-1 {
+    margin-top: -30px;
+    margin-right: -70px;
+    font-size:4mm;
+}
+.traytext-1:hover {
+    text-shadow: red -3px 0, cyan 3px 0;
+}
+.traytext-2 {
+    margin-top: -30px;
+    margin-right: -95px;
+    font-size:4mm;
+}
+.timetray {
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: transparent;
+  padding: 1px 1px;
+  float: right;
+  text-align: center;
+  font-size: 10px;
+  line-height: 24px;
+  width: auto;
+  font-family: 'Windows 95';
+}
+
+  </style>
+</head>
+<body>
+  <div class="logobox">
+    <a href="Home_Page.html"><img src="../icons/Logo.png"></a> 
+  </div>
+  <section id="mySection">
+    <div class="sectionform">
+    <div class="form form-tertiary">
+      <div class="form-header"> Register on our to our website </div>
+        <div class="form-body">
+          <div class="form-box">
+            <label for="email-input" class="label-box">Email</label>
+            <div class="input-box">
+              <input type="email" id="email-input" class="email-input" placeholder="Your email" />
+            </div>
+            <label for="password-input" class="label-box">Password</label>
+            <div class="input-box">
+              <input type="password" id="password-input" class="password-input" placeholder="Your password" />
+            </div>
+            <label for="repeatpassword-input" class="label-box">Confirm password</label>
+            <div class="input-box">
+              <input type="password" id="repeatpassword-input" class="repeatpassword-input" placeholder="Confirm password" />
+            </div>
+            <div class="checkbox-container">
+              <div class="checkbox-box">
+                <input type="checkbox" id="agree-checkbox" class="checkbox-input">
+                <label for="agree-checkbox" class="checkbox-label">I agree to the</label>
+                <a href="#" class="terms">terms and conditions</a>
+              </div>
+            </div>
+            <button class="Register-button">Register account</button>
+         </div>
+         <div class="form-footer">
+          <div class="form-footer-text font-weight-normal">Already have an account?</div>
+          <a href="Login_Page.html" class="login-account-link font-weight-bold">Login here</a> 
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="cardnav">
+        <button class="traybuttons" type="button">
+            <div class="icon-sm"> <img src="../icons_32x32/mail.png" alt="image"><p class="traytext-2">About Us</p>
+        </div>
+        </button>
+        <button class="traybuttons" type="button" onclick="togglePlay()">
+            <div class="icon-sm"> <img src="../icons_32x32/music.png" alt="image"><p class="traytext-1" id="playButton">Play</p>
+            </div>
+        </button>
+        <div class="timetray" id="current-time">
+        <p class="traytext-1"></p>
+        </div>
+  </div>
+  </section>
+  <script>
+    // JavaScript code to generate div structures
+
+    // Get the section element
+    const section = document.getElementById("mySection");
+
+    // Array of image sources
+    const imageSources = [
+      "../icons_32x32/aseprite.png",
+      "../icons_32x32/briefcase.png",
+      "../icons_32x32/calculator.png",
+      "../icons_32x32/calendar.png",
+      "../icons_32x32/cd_drive.png",
+      "../icons_32x32/chrome.png",
+      "../icons_32x32/clock.png",
+      "../icons_32x32/discord.png",
+      "../icons_32x32/drive.png",
+      "../icons_32x32/flop_drive.png",
+      "../icons_32x32/folder_dark.png",
+      "../icons_32x32/mail.png",
+      "../icons_32x32/minecraft.png",
+      "../icons_32x32/movies.png",
+      "../icons_32x32/music.png",
+      "../icons_32x32/notepad.png",
+      "../icons_32x32/parsec.png",
+      "../icons_32x32/phone.png",
+      "../icons_32x32/program.png",
+      "../icons_32x32/recycle_bin_empty.png",
+      "../icons_32x32/search.png",
+      "../icons_32x32/slack.png",
+      "../icons_32x32/slack.png",
+      "../icons_32x32/steam.png",
+      "../icons_32x32/text_file.png",
+      "../icons_32x32/search.png",
+      "../icons_32x32/world.png",
+      "../icons_32x32/sounds.png",
+    ];
+
+    // Number of rows to generate
+    const numRows = 60;
+
+    // Generate div structures
+    for (let i = 0; i < numRows; i++) {
+      // Create the row div
+      const rowDiv = document.createElement("div");
+      rowDiv.classList.add("row");
+
+      // Create the inner divs
+      const innerDiv1 = document.createElement("div");
+      const innerDiv2 = document.createElement("div");
+
+      // Add random images to the inner divs
+      for (let j = 0; j < 20; j++) {
+        // Randomly select an image source
+        const randomIndex = Math.floor(Math.random() * imageSources.length);
+        const randomImageSrc = imageSources[randomIndex];
+
+        // Create the image element and set its source
+        const img1 = document.createElement("img");
+        img1.src = randomImageSrc;
+        innerDiv1.appendChild(img1);
+
+        const img2 = document.createElement("img");
+        img2.src = randomImageSrc;
+        innerDiv2.appendChild(img2);
+      }
+
+      // Append inner divs to the row div
+      rowDiv.appendChild(innerDiv1);
+      rowDiv.appendChild(innerDiv2);
+
+      // Append the row div to the section element
+      section.appendChild(rowDiv);
+    }
+  </script>
+  <script>
+    function updateTime() {
+        var date = new Date();
+        var currentTime = date.toLocaleTimeString();
+        var timeDiv = document.getElementById("current-time");
+        timeDiv.textContent = currentTime;
+      }
+    setInterval(updateTime, 1000);
+
+    function dropSpans(cssClass) {
+        var container = document.querySelector("section");
+        
+        for (var i = 0; i < 610; i++) {
+          var span = document.createElement("span");
+          span.className = cssClass;
+          container.appendChild(span);
+        }
+      }
+
+      dropSpans(10, "custom-span");
+      var audio = document.getElementById("bg-Audio");
+      var audios = ["Sumeru OST  Forest of Jnana.mp3","Realm of Tranquil Eternity.mp3","Sumeru Live Symphony Performance.mp3"];
+      var randomIndex = Math.floor(Math.random() * audios.length);
+      var selectedVideo = "../Bg Audio/" + audios[randomIndex];
+      audio.setAttribute("src", selectedVideo);
+      var playButton = document.getElementById("playButton");
+          
+      function togglePlay() {
+        if (audio.paused) {
+          audio.play();
+          playButton.innerHTML = "Mute";
+        } else {
+          audio.pause();
+          playButton.innerHTML = "Muted";
+        }
+      }
+  </script>
+</body>
+</html>

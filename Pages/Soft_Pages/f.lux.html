@@ -565,19 +565,19 @@ canvas
 </script>
 <script type="text/javascript">
     function getRandomImage2() {
-  var images2 = ["../../backgrounds/11.png", "../../backgrounds/12.jpg", "../../backgrounds/22.png", "../../backgrounds/33.jpg", "../../backgrounds/44.jpg", "../../backgrounds/55.jpg", "../../backgrounds/66.jpg", "../../backgrounds/77.jpg", "../../backgrounds/88.jpg", "../../backgrounds/99.jpg"];
-  var image2Index = Math.floor(Math.random() * images2.length);
-  console.log("Selected image index:", image2Index);
-  var imagePath = images2[image2Index];
-  console.log("Selected image path:", imagePath);
-  return imagePath;
-}
+        var images2 = ["../../backgrounds/11.png", "../../backgrounds/12.jpg", "../../backgrounds/22.png", "../../backgrounds/33.jpg", "../../backgrounds/44.jpg", "../../backgrounds/55.jpg", "../../backgrounds/66.jpg", "../../backgrounds/77.jpg", "../../backgrounds/88.jpg", "../../backgrounds/99.jpg"];
+        var image2Index = Math.floor(Math.random() * images2.length);
+        console.log("Selected image index:", image2Index);
+        var imagePath = images2[image2Index];
+        console.log("Selected image path:", imagePath);
+        return imagePath;
+    }
 
     window.onload = function() {
         console.log("Setting random background image...");
-  var imagePath = getRandomImage2();
-  console.log("Selected image:", imagePath);
-  document.body.style.backgroundImage = "url(" + imagePath + ")";
+        var imagePath = getRandomImage2();
+        console.log("Selected image:", imagePath);
+        document.body.style.backgroundImage = "url(" + imagePath + ")";
     };
 </script>
 </head>

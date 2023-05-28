@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <style>
+<style>
 @font-face {
     font-family: 'Windows 95';
     src: url('../fonts/w-95-sans-serif.woff2') format('woff2'),
@@ -320,6 +318,13 @@ a:hover,
 }
 
 
+
+
+
+/*# sourceMappingURL=pixel.css.map */
+body {
+    overflow: hidden;
+}
 .card-text1{
     text-align: left;
     margin-left: 120px;
@@ -613,11 +618,11 @@ body, html {
 		 clip: rect(38px, 9999px, 49px, 0);
 	}
 }
-* {
+    * {
       margin: 0;
       padding: 0;
+      font-family: "Windows 95", sans-serif;
       box-sizing: border-box;
-	  font-family: "Windows 95", sans-serif;
     }
     section {
       position: absolute;
@@ -719,10 +724,11 @@ body, html {
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #000;
     }
     
     .form {
-      height: 50vh;
+      height: 30vh;
       width: 450px;
       position: absolute;
       top: 50%;
@@ -762,7 +768,7 @@ body, html {
     left: -3px;
     }
   .form-body {
-     height: 440px;
+     height: 25vh;
      overflow: hidden;
      padding: 10px 7px;
      position: relative;
@@ -795,8 +801,7 @@ body, html {
       width: 100%; 
     }
 
-    .email-input,
-    .password-input {
+    .email-input {
       flex: 1; 
       width: 100%;
       padding: 10px;
@@ -808,68 +813,16 @@ body, html {
       font-size: 0.65em;
     }
 
-    .email-input:focus + .label-box,
-    .password-input:focus + .label-box {
+    .email-input:focus + .label-box {
       opacity: 0;
     }
 
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%; 
-    }
 
-    .checkbox-box {
-      display: flex;
-      align-items: center;
-      color: #000181;
-    }
-
-    .checkbox-input {
-      margin-right: 10px;
-      position: relative;
-      width: 16px;
-      height: 16px;
-      appearance: none;
-      background-color: transparent;
-      border: 1px solid #000000;
-      cursor: pointer;
-    }
-    .checkbox-input:checked:after {
-      font-family: "Calibri", sans-serif; 
-      content: "X";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.65em;
-      color: #000000;
-    }
-
-    .checkbox-label {
-      color: #000000;
-      font-size: 0.65em;
-      display: inline-block;
-      margin-right: 10px;
-    }
-
-    .lostpassword {
-      color: #0e19b1;
-      font-size: 0.7em;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .lostpassword:hover {
-      text-decoration: underline;
-    }
-
-    .login-button {
-      width: 100%; 
+    .sendmail{
+      width: 100%;
       border: none;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 60px;
       position: relative;
       transition: all 0.2s ease;
       letter-spacing: 0.025em;
@@ -885,46 +838,33 @@ body, html {
       border-bottom: 2px solid #858585;
     }
 
-    .login-button:active {
+    .sendmail:active {
       border-top: 2px solid rgb(196, 196, 196);
       border-left: 2px solid rgb(196, 196, 196);
       border-right: 2px solid rgb(196, 196, 196);
       border-bottom: 2px solid rgb(196, 196, 196);;
     }
-
-    .form-footer {
-      width: 100%;
-      padding: 10px;
-      font-size: 0.6em;
-      border: none;
-      border-radius: 4px;
+    .success-message {
       color: #000000;
-      cursor: pointer;
-      margin-top: 15px;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      cursor: default;
+      font-size: 0.7em;
+      margin-bottom: 10px;
+      text-align: center;
     }
-    .create-account-link {
-      margin-left: 10px;
-      color: #1613c0;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .create-account-link:hover {
-      text-decoration: underline;
+    .success-message-wrapper {
+      position: absolute;
+      top: 110px; 
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 200px; 
     }
 
-    .font-weight-normal {
-      font-weight: 400;
-    }
-    .font-weight-bold {
-      font-weight: 700;
-    }
 
 </style>
-</head>
+<html>
+   <head>
+      <meta charset="utf-8">
+   </head>
    <body>
     <section>
     <audio id="bg-Audio" loop></audio>
@@ -943,30 +883,18 @@ body, html {
       </div>
     </span>
     <div class="form form-tertiary">
-      <div class="form-header"> Sign in to our website </div>
+      <div class="form-header"> Reset Passwrod </div>
         <div class="form-body">
           <div class="form-box">
             <label for="email-input" class="label-box">Email</label>
             <div class="input-box">
               <input type="email" id="email-input" class="email-input" placeholder="Your email" />
             </div>
-            <label for="password-input" class="label-box">Password</label>
-            <div class="input-box">
-              <input type="password" id="password-input" class="password-input" placeholder="Your password" />
+            <div class="success-message-wrapper">
+              <p id="success-message" class="success-message"></p>
             </div>
-            <div class="checkbox-container">
-              <div class="checkbox-box">
-                <input type="checkbox" id="remember-checkbox" class="checkbox-input">
-                <label for="remember-checkbox" class="checkbox-label">Remember me</label>
-              </div>
-              <a href="Reset_page.html" class="lostpassword">Lost password?</a>
-            </div>
-            <button class="login-button">Login</button>
+            <button class="sendmail" onclick="showSuccessMessage()">Send Instruction</button>
          </div>
-         <div class="form-footer">
-          <div class="form-footer-text font-weight-normal">Don't have an account?</div>
-          <a href="Registration_Page.html" class="create-account-link font-weight-bold">Create account</a> 
-        </div>
         </div>
       </div>
     </section>
@@ -984,6 +912,7 @@ body, html {
         </div>
     </div>
       <script>
+        //////// Card nav script ////////
         function updateTime() {
             var date = new Date();
             var currentTime = date.toLocaleTimeString();
@@ -991,7 +920,8 @@ body, html {
             timeDiv.textContent = currentTime;
           }
         setInterval(updateTime, 1000);
-    
+
+        ////// span dropping for bg animation ////////
         function dropSpans(cssClass) {
             var container = document.querySelector("section");
             
@@ -1003,6 +933,8 @@ body, html {
           }
     
           dropSpans(10, "custom-span");
+
+          ///// random bg music playing ////////
           var audio = document.getElementById("bg-Audio");
           var audios = ["Sumeru OST  Forest of Jnana.mp3","Realm of Tranquil Eternity.mp3","Sumeru Live Symphony Performance.mp3"];
           var randomIndex = Math.floor(Math.random() * audios.length);
@@ -1019,6 +951,23 @@ body, html {
               playButton.innerHTML = "Muted";
             }
           }
+      </script>
+      <script>
+        ////////////// Email checking script ///////////
+        function showSuccessMessage() {
+          var emailInput = document.getElementById("email-input").value;
+          var successMessage = document.getElementById("success-message");
+    
+          if (emailInput.trim() !== "") {
+            if (emailInput.endsWith("@gmail.com") || emailInput.endsWith("@ymail.com")) {
+              successMessage.textContent = "Instructions for resetting password have been sent to " + emailInput;
+            } else {
+              successMessage.textContent = "Please enter a valid Mail address.";
+            }
+          } else {
+            successMessage.textContent = "";
+          }
+        }
       </script>
    </body>
 </html>
