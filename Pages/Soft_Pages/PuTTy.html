@@ -332,6 +332,7 @@ a:hover,
 /*# sourceMappingURL=pixel.css.map */
 body {
     overflow: hidden;
+    background-size: 100%;
 }
 .card-text1{
     text-align: left;
@@ -596,14 +597,20 @@ canvas
     }
 </script>
 <script type="text/javascript">
-    function getRandomColor() {
-        var colors = ["#FF5733", "#DAF7A6", "#C70039", "#900C3F", "#f032e6","#e35f5f","#394dcd","#dfe300","#dfe300","#208c71","#6c6c6c","#f47e50","#6fbc76","#ffcc00","#0089c0"];
-        var colorIndex = Math.floor(Math.random() * colors.length);
-        return colors[colorIndex];
+    function getRandomImage2() {
+        var images2 = ["../../backgrounds/11.png", "../../backgrounds/12.jpg", "../../backgrounds/22.png", "../../backgrounds/33.jpg", "../../backgrounds/44.jpg", "../../backgrounds/55.jpg", "../../backgrounds/66.jpg", "../../backgrounds/77.jpg", "../../backgrounds/88.jpg", "../../backgrounds/99.jpg"];
+        var image2Index = Math.floor(Math.random() * images2.length);
+        console.log("Selected image index:", image2Index);
+        var imagePath = images2[image2Index];
+        console.log("Selected image path:", imagePath);
+        return imagePath;
     }
 
     window.onload = function() {
-        document.body.style.backgroundColor = getRandomColor();
+        console.log("Setting random background image...");
+        var imagePath = getRandomImage2();
+        console.log("Selected image:", imagePath);
+        document.body.style.backgroundImage = "url(" + imagePath + ")";
     };
 </script>
 </head>
