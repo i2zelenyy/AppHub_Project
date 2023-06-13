@@ -6,6 +6,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Hub VLCplayer</title>
 <style>
+    * {
+	 box-sizing: border-box;
+}
+ body {
+	 background-color: #297b7b;
+	 font-size: 14px;
+	 overflow: hidden;
+     z-index: -5;
+}
+ .wrap {
+	 perspective-origin: 50% 50%;
+     z-index: -5;
+}
+ .page {
+	 margin: 3%;
+	 max-width: 600px;
+	 margin-left: auto;
+	 margin-right: auto;
+	 padding: 30px;
+	 border-radius: 3px;
+	 text-align: center;
+	 font-size: 1.4vw;
+     z-index: -5;
+}
+ .page h2 {
+	 font-weight: bold;
+	 font-size: 6.5vw;
+	 font-weight: 900;
+	 font-style: italic;
+	 color: #dad8ec;
+}
+ .svg {
+	 stroke: #4bd2dc;
+	 position: absolute;
+	 bottom: -100vh;
+	 transform-style: preserve-3d;
+     z-index: -5;
+}
+ .svg:nth-child(1) {
+	 left: 7%;
+	 animation: raise1 9s linear infinite;
+	 animation-delay: -4s;
+	 transform: scale(-0.3) rotate(335deg);
+	 z-index: -6;
+	 filter: blur(-5px);
+}
+ @keyframes raise1 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(-0.3) rotate(287deg);
+	}
+}
+ .svg:nth-child(2) {
+	 left: 6%;
+	 animation: raise2 15s linear infinite;
+	 animation-delay: 0s;
+	 transform: scale(0) rotate(48deg);
+	 z-index: -5;
+	 filter: blur(-4px);
+}
+ @keyframes raise2 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(0) rotate(341deg);
+	}
+}
+ .svg:nth-child(3) {
+	 left: -17%;
+	 animation: raise3 18s linear infinite;
+	 animation-delay: -4s;
+	 transform: scale(0.3) rotate(53deg);
+	 z-index: -4;
+	 filter: blur(-3px);
+}
+ @keyframes raise3 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(0.3) rotate(225deg);
+	}
+}
+ .svg:nth-child(4) {
+	 left: -11%;
+	 animation: raise4 16s linear infinite;
+	 animation-delay: 0s;
+	 transform: scale(0.6) rotate(165deg);
+	 z-index: -3;
+	 filter: blur(-2px);
+}
+ @keyframes raise4 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(0.6) rotate(101deg);
+	}
+}
+ .svg:nth-child(5) {
+	 left: 56%;
+	 animation: raise5 12s linear infinite;
+	 animation-delay: -1s;
+	 transform: scale(0.9) rotate(329deg);
+	 z-index: -2;
+	 filter: blur(-1px);
+}
+ @keyframes raise5 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(0.9) rotate(9deg);
+	}
+}
+ .svg:nth-child(6) {
+	 left: 30%;
+	 animation: raise6 18s linear infinite;
+	 animation-delay: 0s;
+	 transform: scale(1.2) rotate(217deg);
+	 z-index: -5;
+	 filter: blur(0px);
+}
+ @keyframes raise6 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(1.2) rotate(46deg);
+	}
+}
+ .svg:nth-child(7) {
+	 left: 33%;
+	 animation: raise7 11s linear infinite;
+	 animation-delay: -3s;
+	 transform: scale(1.5) rotate(243deg);
+	 z-index: -3;
+	 filter: blur(1px);
+}
+ @keyframes raise7 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(1.5) rotate(183deg);
+	}
+}
+ .svg:nth-child(8) {
+	 left: 76%;
+	 animation: raise8 9s linear infinite;
+	 animation-delay: -1s;
+	 transform: scale(1.8) rotate(315deg);
+	 z-index: -2;
+	 filter: blur(2px);
+}
+ @keyframes raise8 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(1.8) rotate(209deg);
+	}
+}
+ .svg:nth-child(9) {
+	 left: 40%;
+	 animation: raise9 14s linear infinite;
+	 animation-delay: -2s;
+	 transform: scale(2.1) rotate(13deg);
+	 z-index: -1;
+	 filter: blur(3px);
+}
+ @keyframes raise9 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(2.1) rotate(69deg);
+	}
+}
+ .svg:nth-child(10) {
+	 left: -9%;
+	 animation: raise10 16s linear infinite;
+	 animation-delay: -1s;
+	 transform: scale(2.4) rotate(334deg);
+	 z-index: -1;
+	 filter: blur(4px);
+}
+ @keyframes raise10 {
+	 to {
+		 bottom: 150vh;
+		 transform: scale(2.4) rotate(192deg);
+	}
+}
 @font-face {
     font-family: 'Windows 95';
     src: url('../../fonts/w-95-sans-serif.woff2') format('woff2'),
@@ -563,25 +741,45 @@ canvas
         return randomImage;
     }
 </script>
-<script type="text/javascript">
-    function getRandomImage2() {
-        var images2 = ["../../backgrounds/11.png", "../../backgrounds/12.jpg", "../../backgrounds/22.png", "../../backgrounds/33.jpg", "../../backgrounds/44.jpg", "../../backgrounds/55.jpg", "../../backgrounds/66.jpg", "../../backgrounds/77.jpg", "../../backgrounds/88.jpg", "../../backgrounds/99.jpg"];
-        var image2Index = Math.floor(Math.random() * images2.length);
-        console.log("Selected image index:", image2Index);
-        var imagePath = images2[image2Index];
-        console.log("Selected image path:", imagePath);
-        return imagePath;
-    }
-
-    window.onload = function() {
-        console.log("Setting random background image...");
-        var imagePath = getRandomImage2();
-        console.log("Selected image:", imagePath);
-        document.body.style.backgroundImage = "url(" + imagePath + ")";
-    };
-</script>
 </head>
 <body>
+    <div class="wrap">
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">	
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">	
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z" stroke-width="7" fill="none"/>
+        </svg>
+        </div>
         <canvas><img id="random-image" src="" alt=""></canvas>
         <div class="card card-tertiary">
             <div class="card-header">
@@ -639,76 +837,5 @@ canvas
             }
             setInterval(updatepicture,200);
         </script>
-        <script>
-            const canvas = document.querySelector("canvas");
-            const ctx = canvas.getContext("2d");
-          
-            // define logo image
-            const img = document.getElementById("random-image");
-          
-            // define logo properties
-            const logoWidth = 80;
-            const logoHeight = 80;
-            let logoX = (canvas.width - logoWidth) / 2;
-            let logoY = (canvas.height - logoHeight) / 2;
-            let logoDx = 2;
-            let logoDy = 2;
-          
-            // set canvas dimensions to match window size
-            function setCanvasDimensions() {
-            const currentWidth = canvas.width;
-            const currentHeight = canvas.height;
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            if (currentWidth !== canvas.width || currentHeight !== canvas.height) {
-            // reset logo position and movement vectors
-            logoX = (canvas.width - logoWidth) / 2;
-            logoY = (canvas.height - logoHeight) / 2;
-    
-            // calculate new direction based on current speed
-            const currentSpeed = Math.sqrt(logoDx * logoDx + logoDy * logoDy);
-            const angle = Math.atan2(logoDy, logoDx);
-            logoDx = Math.cos(angle) * currentSpeed;
-            logoDy = Math.sin(angle) * currentSpeed;
-            }
-        }
-          
-            // draw loop
-            function draw() {
-              // clear canvas
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
-          
-              // draw logo
-              ctx.drawImage(img, logoX, logoY, logoWidth, logoHeight);
-          
-              // update logo position
-              logoX += logoDx;
-              logoY += logoDy;
-          
-              // check for collision with canvas edges
-              if (logoX + logoWidth > canvas.width || logoX < 0) {
-                logoDx = -logoDx;
-              }
-              if (logoY + logoHeight > canvas.height ||  logoY < 0) {
-                logoDy = -logoDy;
-              }
-          
-              // request next frame
-              requestAnimationFrame(draw);
-            }
-          
-            // call setCanvasDimensions on page load and add a resize event listener to recall draw function
-            setCanvasDimensions();
-            window.addEventListener("resize", () => {
-              setCanvasDimensions();
-              window.cancelAnimationFrame(requestId);
-              draw();
-            });
-          
-            // start animation loop
-            draw();
-          </script>
 </body>
 </html>
