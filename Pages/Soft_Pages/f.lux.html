@@ -692,6 +692,14 @@ canvas
                 var timeDiv = document.getElementById("current-time");
                 timeDiv.textContent = currentTime;
             }
+            setInterval(updatetime,1000);
+            function updatepicture(){
+                const randomImage = getRandomImage();
+                const imgElement = document.getElementById('random-image');
+                imgElement.src = randomImage.src;
+                imgElement.alt = randomImage.alt;
+            }
+            setInterval(updatepicture,200);
         </script>
 </body>
 </html>
