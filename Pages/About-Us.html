@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../fonts/FormStyle.css">
+  <title>About Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Windows 95", sans-serif;
+    }
+    body {
+      background-color: rgb(116, 186, 226);
+      overflow-x: hidden;
+    }
+    .parallax {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150vh;
+      background: url(../icons/Bg.png) no-repeat;
+      background-size: 100% 50%;
+      background-position: center 100%; 
+      background-attachment: relative;
+      z-index: -4;
+    }
+    #text {
+      position: absolute;
+      margin-top: -13%;
+      font-size: 3em;
+      color: #4a9e4a;
+      text-shadow: 2px 4px 5px #2746aa;
+      z-index: -2;
+    }
+    .parallax img {
+      pointer-events: none;
+    }
+
+    .parallax #b-clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 30vh;
+      z-index: 5;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .parallax #build {
+      position: absolute;
+      bottom: 0%;
+      left: -20%;
+      width: 80vw;
+      height: 60vh;
+      transition: all 0.5s ease-in-out;
+    }
+    .parallax #wall {
+      position: absolute;
+      bottom: -3%;
+      left: 0%;
+      width: 100vw;
+      height: 20vh;
+    }
+    .rain {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      opacity: 1;
+      z-index: -5;
+      background-image: url(../icons/rain.png);
+      animation: rain 0.3s linear infinite;
+    }
+    @keyframes rain {
+      0%{
+        background-position: 0% 0%;
+      }
+      100%{
+        background-position: 20% 100%;
+      }
+    }
+    .lightning {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 17vw;
+      height: 15vh;
+      z-index: 50;
+      background-image: url("../icons/logo.png"); 
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      opacity: 0;
+      animation: lightningEffect 4s linear infinite;
+    }
+
+    .lightning:hover {
+      animation: none; 
+      opacity: 1;
+    } 
+
+    @keyframes lightningEffect {
+      0% {
+        opacity: 0.5;
+      }
+      10% {
+        opacity: 1;
+      }
+      20% {
+        opacity: 0.2;
+      }
+      80% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.3;
+      }
+    }
+
+    .contact-container {
+      background-image: url("../icons/soil.jpg");
+      background-repeat: repeat; 
+      background-attachment: fixed; 
+      background-size: auto;
+      background-position: center top; 
+      margin-top: 0%;
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+    }
+    iframe {
+      margin-top: 3%;
+      width: 100%;
+      height: 20vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="rain"></div>
+  <div class="lightning"></div>
+  <audio src="rainthunder.mp3" loop></audio>
+  <section class="parallax">
+    <h2 id="text">Scroll Down</h2>
+    <img src="../icons/Bcloud.png" id="b-clouds">
+    <img src="../icons/build.png" id="build">
+    
+    <img src="../icons/stonewall.png" id="wall">
+  </section>
+  <a href="Home_Page.html" class="lightning"></a>
+</div>
+<div class="contact-container">
+  <div class="form form-tertiary">
+    <div class="form-header"> Contact </div>
+      <div class="form-body">
+        <div class="form-box">
+          <label for="email-input" class="label-box">Email</label>
+          <div class="input-box">
+            <input type="email" id="email-input" class="email-input" placeholder="Your email" />
+          </div>
+          <label for="email-input" class="label-box"> Subject </label>
+          <div class="input-box">
+            <input type="email" id="email-input" class="email-input" placeholder="The topic" />
+          </div>
+          <label for="email-input" class="label-box"> Your message </label>
+          <div class="input-box">
+            <input type="text" id="message-input" class="message-input" placeholder="The message" />
+          </div>
+          <button class="sendmail">Send Message</button>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.845434424699!2d8.215070115819925!3d48.04918377921866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791176c5b0e5361%3A0xb2a33a74ef1b3b74!2sFurtwangen%20University!5e0!3m2!1sen!2s!4v1622834980106!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+       </div>
+      </div>
+    </div>
+</div>
+
+<script>
+  // JavaScript code
+  let text = document.getElementById("text");
+  let bcloud = document.getElementById("b-clouds");
+  let build = document.getElementById("build");
+  let wall = document.getElementById("wall");
+  let rainElement = document.querySelector(".rain");
+  let audioElement = document.querySelector("audio");
+
+
+
+  window.addEventListener("scroll", () => {
+  let value = window.scrollY * 2;
+  let parallaxHeight = document.querySelector(".parallax").clientHeight;
+  let parallaxOffset = document.querySelector(".parallax").offsetTop;
+
+  if(value <= 250) {
+    text.style.transform = `translateY(-${value * 4}px)`;
+    bcloud.style.transform = `translateY(-${value * 1}px)`;
+  } 
+
+  if (value >= parallaxHeight/2) {
+    let scaleFactor = 1 - (value - parallaxHeight/2) / parallaxHeight; 
+
+    if (scaleFactor > 0.75){
+      build.style.transform = `scale(${scaleFactor})`;
+    }
+  }
+
+  if (value >  parallaxHeight/2) {
+    rainElement.style.opacity = "0";
+    rainElement.style.animation = "none";
+    audioElement.src = "birdsun.mp3";
+  } else {
+    rainElement.style.opacity = "1";
+    rainElement.style.animation = "rain 0.3s linear infinite";
+    audioElement.src = "rainthunder.mp3";
+  }
+});
+
+</script>
+</body>
+</html>
