@@ -14,6 +14,37 @@
     font-style: normal;
 }
 
+
+.bg {
+  animation:slide 5s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(196, 51, 204) 50%, rgb(255, 247, 0) 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index: -15;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:7s;
+  z-index: -15;
+}
+
+.bg3 {
+  animation-duration:9s;
+  z-index: -15;
+}
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
 .bg-white {
     background-color: #ffffff !important;
 }
@@ -564,24 +595,11 @@ canvas
         return randomImage;
     }
 </script>
-<script type="text/javascript">
-    function getRandomImage2() {
-        var images2 = ["../../backgrounds/11.png", "../../backgrounds/12.jpg", "../../backgrounds/22.png", "../../backgrounds/33.jpg", "../../backgrounds/44.jpg", "../../backgrounds/55.jpg", "../../backgrounds/66.jpg", "../../backgrounds/77.jpg", "../../backgrounds/88.jpg", "../../backgrounds/99.jpg"];
-        var image2Index = Math.floor(Math.random() * images2.length);
-        console.log("Selected image index:", image2Index);
-        var imagePath = images2[image2Index];
-        console.log("Selected image path:", imagePath);
-        return imagePath;
-    }
-
-    window.onload = function() {
-        console.log("Setting random background image...");
-        var imagePath = getRandomImage2();
-        console.log("Selected image:", imagePath);
-        document.body.style.backgroundImage = "url(" + imagePath + ")";
-    };
-</script>
 <body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    </div>
         <canvas><img id="random-image" src="" alt=""></canvas>
         <div class="card card-tertiary">
             <div class="card-header">
@@ -638,76 +656,5 @@ canvas
             }
             setInterval(updatepicture,200);
         </script>
-        <script>
-            const canvas = document.querySelector("canvas");
-            const ctx = canvas.getContext("2d");
-          
-            // define logo image
-            const img = document.getElementById("random-image");
-          
-            // define logo properties
-            const logoWidth = 80;
-            const logoHeight = 80;
-            let logoX = (canvas.width - logoWidth) / 2;
-            let logoY = (canvas.height - logoHeight) / 2;
-            let logoDx = 2;
-            let logoDy = 2;
-          
-            // set canvas dimensions to match window size
-            function setCanvasDimensions() {
-            const currentWidth = canvas.width;
-            const currentHeight = canvas.height;
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            if (currentWidth !== canvas.width || currentHeight !== canvas.height) {
-            // reset logo position and movement vectors
-            logoX = (canvas.width - logoWidth) / 2;
-            logoY = (canvas.height - logoHeight) / 2;
-    
-            // calculate new direction based on current speed
-            const currentSpeed = Math.sqrt(logoDx * logoDx + logoDy * logoDy);
-            const angle = Math.atan2(logoDy, logoDx);
-            logoDx = Math.cos(angle) * currentSpeed;
-            logoDy = Math.sin(angle) * currentSpeed;
-            }
-        }
-          
-            // draw loop
-            function draw() {
-              // clear canvas
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
-          
-              // draw logo
-              ctx.drawImage(img, logoX, logoY, logoWidth, logoHeight);
-          
-              // update logo position
-              logoX += logoDx;
-              logoY += logoDy;
-          
-              // check for collision with canvas edges
-              if (logoX + logoWidth > canvas.width || logoX < 0) {
-                logoDx = -logoDx;
-              }
-              if (logoY + logoHeight > canvas.height ||  logoY < 0) {
-                logoDy = -logoDy;
-              }
-          
-              // request next frame
-              requestAnimationFrame(draw);
-            }
-          
-            // call setCanvasDimensions on page load and add a resize event listener to recall draw function
-            setCanvasDimensions();
-            window.addEventListener("resize", () => {
-              setCanvasDimensions();
-              window.cancelAnimationFrame(requestId);
-              draw();
-            });
-          
-            // start animation loop
-            draw();
-          </script>
 </body>
 </html>
