@@ -24,7 +24,7 @@
       background-size: 100% 50%;
       background-position: center 100%; 
       background-attachment: relative;
-      z-index: -4;
+      z-index: 0;
     }
     #text {
       position: absolute;
@@ -35,7 +35,7 @@
       z-index: -2;
     }
     .parallax img {
-      pointer-events: none;
+      z-index: -1; /* Lower z-index value to ensure the images are behind other elements */
     }
 
     .parallax #b-clouds {
@@ -54,6 +54,31 @@
       left: -20%;
       width: 80vw;
       height: 60vh;
+      transition: all 0.5s ease-in-out;
+    }
+    .parallax #fedor {
+      position: absolute;
+      bottom: -18%;
+      right: -5%;
+      width: 20vw;
+      height: 30vh;
+      transition: all 0.5s ease-in-out;
+    }
+    .parallax #erwin {
+      position: absolute;
+      bottom: -18%;
+      right: 5%;
+      width: 20vw;
+      height: 30vh;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .parallax #ivan {
+      position: absolute;
+      bottom: -18%;
+      right: 15%;
+      width: 20vw;
+      height: 30vh;
       transition: all 0.5s ease-in-out;
     }
     .parallax #wall {
@@ -132,6 +157,7 @@
       width: 100vw;
       height: 100vh;
       text-align: center;
+      z-index: 2;
     }
     iframe {
       margin-top: 3%;
@@ -143,16 +169,26 @@
 <body>
   <div class="rain"></div>
   <div class="lightning"></div>
-  <audio src="rainthunder.mp3" loop></audio>
+  <audio src="rainthunder.mp3" autoplay loop></audio>
   <section class="parallax">
     <h2 id="text">Scroll Down</h2>
     <img src="../icons/Bcloud.png" id="b-clouds">
     <img src="../icons/build.png" id="build">
-    
+    <img src="../icons/person.png" id="fedor" onclick="zoomImage('fedor')">
+    <img src="../icons/person.png" id="erwin" onclick="zoomImage('erwin')">
+    <img src="../icons/person.png" id="ivan" onclick="zoomImage('ivan')">
     <img src="../icons/stonewall.png" id="wall">
   </section>
+  <div class="aboutwindow aboutwindow-tertiary">
+    <div class="aboutwindow-header"> About Us </div>
+      <div class="aboutwindow-body">
+        <div class="aboutwindow-box">
+          <label for="about" class="about-box">We are IBS students in wirtshaft informatic in Hochshule Furtwagnen. Each of us have diffrenet background and knowledge and interests by closing this page and clicking on our picture you can see detail and interests of each. </label>
+          <button class="closebutton" >Close</button>
+       </div>
+      </div>
+  </div>
   <a href="Home_Page.html" class="lightning"></a>
-</div>
 <div class="contact-container">
   <div class="form form-tertiary">
     <div class="form-header"> Contact </div>
@@ -178,12 +214,15 @@
 </div>
 
 <script>
-  // JavaScript code
   let text = document.getElementById("text");
   let bcloud = document.getElementById("b-clouds");
   let build = document.getElementById("build");
   let wall = document.getElementById("wall");
+  let erwin = document.getElementById("erwin");
+  let fedor = document.getElementById("fedor");
+  let ivan = document.getElementById("ivan");
   let rainElement = document.querySelector(".rain");
+  let about = document.querySelector(".aboutwindow");
   let audioElement = document.querySelector("audio");
 
 
@@ -193,30 +232,50 @@
   let parallaxHeight = document.querySelector(".parallax").clientHeight;
   let parallaxOffset = document.querySelector(".parallax").offsetTop;
 
+
   if(value <= 250) {
     text.style.transform = `translateY(-${value * 4}px)`;
     bcloud.style.transform = `translateY(-${value * 1}px)`;
   } 
 
-  if (value >= parallaxHeight/2) {
+  if (value >= (parallaxHeight/2)-200 && value < parallaxHeight-600 ) {
     let scaleFactor = 1 - (value - parallaxHeight/2) / parallaxHeight; 
-
-    if (scaleFactor > 0.75){
+    var opacityValue = (value - parallaxHeight / 2)*3 / (parallaxHeight / 5);
+    
+    if (scaleFactor > 0.85){
       build.style.transform = `scale(${scaleFactor})`;
+      about.style.opacity= opacityValue > 0.2 ? opacityValue : 0;;
+      erwin.style.transform = `translateY(-${value * 0.4}px)`;
+      fedor.style.transform = `translateY(-${value * 0.4}px)`;
+      ivan.style.transform = `translateY(-${value * 0.4}px)`;
     }
   }
 
   if (value >  parallaxHeight/2) {
     rainElement.style.opacity = "0";
     rainElement.style.animation = "none";
-    audioElement.src = "birdsun.mp3";
+    audioElement.src = "../Bg Audio/birdsun.mp3";
   } else {
     rainElement.style.opacity = "1";
     rainElement.style.animation = "rain 0.3s linear infinite";
-    audioElement.src = "rainthunder.mp3";
+    audioElement.src = "../Bg Audio/rainthunder.mp3";
   }
 });
+let closeBtn = document.querySelector(".closebutton");
+let aboutwindow = document.querySelector(".aboutwindow");
 
+closeBtn.addEventListener("click", () => {
+  aboutwindow.style.opacity = 0;
+});
+
+</script>
+<script>
+  function zoomImage(id) {
+    var image = document.getElementById(id);
+    image.style.transform = "scale(1.4)";
+    image.style.position = "absolute";
+    image.style.bottom = "5%";
+  }
 </script>
 </body>
 </html>

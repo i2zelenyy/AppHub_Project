@@ -47,7 +47,7 @@
   }
 
 .form-body {
-   height: 85vh;
+   height: 84vh;
    overflow: hidden;
    padding: 10px 7px;
    position: relative;
@@ -135,6 +135,102 @@
   }
 
   .sendmail:active {
+    border-top: 2px solid rgb(196, 196, 196);
+    border-left: 2px solid rgb(196, 196, 196);
+    border-right: 2px solid rgb(196, 196, 196);
+    border-bottom: 2px solid rgb(196, 196, 196);;
+  }
+
+  .aboutwindow {
+    height: 30vh;
+    width: 50vw;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    box-shadow: 0 15px 35px rgba(0,0,0,5);
+    transform: translate( -50%, -50%);
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #393939;
+    border-bottom: 2px solid #393939;
+    border-radius: 0;
+    background: #C0C0C0;
+    z-index: 3;
+    opacity: 0;
+  }
+
+.aboutwindow-tertiary .aboutwindow-header {
+    background: #000181;
+    color: white;
+  }
+
+.aboutwindow-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #808080;
+  font-size: .65rem;
+  padding: 5px;
+  color: #C9C9C9;
+  border-radius: 0;
+  border: 2px solid #BDBDBD;
+  text-align: center;
+  }  
+
+.aboutwindow-header .icon {
+  position: absolute;
+  top: -5px;
+  left: -3px;
+  }
+
+.aboutwindow-body {
+   height: 25vh;
+   overflow: hidden;
+   padding: 10px 7px;
+   position: relative;
+   border-top: 2px solid #BDBDBD;
+   border-left: 3px solid #BDBDBD;
+   border-right: 3px solid #BDBDBD;
+   border-bottom: 2px solid #bdbdbd;
+   background-color: rgb(196, 196, 196);
+  }
+
+  .aboutwindow-box {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center; 
+    width: calc(100% - 20px); 
+    box-sizing: border-box;
+  }
+
+  .about-box {
+    font-size: 0.75em;
+    color: #000000;
+  }
+
+  .closebutton{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-top: 5%;
+    position: relative;
+    transition: all 0.2s ease;
+    letter-spacing: 0.025em;
+    font-size: .6rem;
+    border-radius: 0.125rem;
+    padding: .6rem 2rem;
+    max-height: 37px;
+    color: #000;
+    background-color: #c0c0c0;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #858585;
+    border-bottom: 2px solid #858585;
+  }
+
+  .closebutton:active {
     border-top: 2px solid rgb(196, 196, 196);
     border-left: 2px solid rgb(196, 196, 196);
     border-right: 2px solid rgb(196, 196, 196);
