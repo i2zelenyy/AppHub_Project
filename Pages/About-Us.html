@@ -30,12 +30,9 @@
       position: absolute;
       margin-top: -13%;
       font-size: 3em;
-      color: #4a9e4a;
+      color: #40a140;
       text-shadow: 2px 4px 5px #2746aa;
       z-index: -2;
-    }
-    .parallax img {
-      z-index: -1; /* Lower z-index value to ensure the images are behind other elements */
     }
 
     .parallax #b-clouds {
@@ -62,15 +59,17 @@
       right: -5%;
       width: 20vw;
       height: 30vh;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      z-index: -1;
     }
+
     .parallax #erwin {
       position: absolute;
       bottom: -18%;
       right: 5%;
       width: 20vw;
       height: 30vh;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     .parallax #ivan {
@@ -79,14 +78,17 @@
       right: 15%;
       width: 20vw;
       height: 30vh;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      z-index: -1;
     }
+
     .parallax #wall {
       position: absolute;
       bottom: -3%;
       left: 0%;
       width: 100vw;
       height: 20vh;
+      z-index: 5;
     }
     .rain {
       position: absolute;
@@ -174,16 +176,17 @@
     <h2 id="text">Scroll Down</h2>
     <img src="../icons/Bcloud.png" id="b-clouds">
     <img src="../icons/build.png" id="build">
-    <img src="../icons/person.png" id="fedor" onclick="zoomImage('fedor')">
-    <img src="../icons/person.png" id="erwin" onclick="zoomImage('erwin')">
-    <img src="../icons/person.png" id="ivan" onclick="zoomImage('ivan')">
     <img src="../icons/stonewall.png" id="wall">
+    <img src="../icons/person.png" id="fedor">
+    <img src="../icons/person.png" id="erwin">
+    <img src="../icons/person.png" id="ivan">
   </section>
   <div class="aboutwindow aboutwindow-tertiary">
-    <div class="aboutwindow-header"> About Us </div>
+    <div class="aboutwindow-header" id="person-name"> About Us </div>
       <div class="aboutwindow-body">
         <div class="aboutwindow-box">
-          <label for="about" class="about-box">We are IBS students in wirtshaft informatic in Hochshule Furtwagnen. Each of us have diffrenet background and knowledge and interests by closing this page and clicking on our picture you can see detail and interests of each. </label>
+          <label for="about" class="about-box"><div id="about-content">We are IBS students in wirtshaft informatic in Hochshule Furtwagnen. Each of us have diffrenet background and knowledge and interests by puting mouse or finger on our picture you can see detail and interests of each.</div>
+          </label>
           <button class="closebutton" >Close</button>
        </div>
       </div>
@@ -240,14 +243,39 @@
 
   if (value >= (parallaxHeight/2)-200 && value < parallaxHeight-600 ) {
     let scaleFactor = 1 - (value - parallaxHeight/2) / parallaxHeight; 
-    var opacityValue = (value - parallaxHeight / 2)*3 / (parallaxHeight / 5);
-    
+    var opacityValue = (value - parallaxHeight/3) / (parallaxHeight / 5);
+    let translateYValue = -value * 0.4;
+
+
     if (scaleFactor > 0.85){
       build.style.transform = `scale(${scaleFactor})`;
-      about.style.opacity= opacityValue > 0.2 ? opacityValue : 0;;
+      about.style.opacity= opacityValue > 0.4 ? opacityValue : 0;;
       erwin.style.transform = `translateY(-${value * 0.4}px)`;
       fedor.style.transform = `translateY(-${value * 0.4}px)`;
       ivan.style.transform = `translateY(-${value * 0.4}px)`;
+      
+      fedor.addEventListener("mouseover", () => {
+        fedor.style.transform = `translateY(${translateYValue}px) scale(1.4)`;
+      });
+
+      fedor.addEventListener("mouseout", () => {
+        fedor.style.transform = `translateY(${translateYValue}px) scale(1)`;
+      });
+      erwin.addEventListener("mouseover", () => {
+        erwin.style.transform = `translateY(${translateYValue}px) scale(1.4)`;
+      });
+
+      erwin.addEventListener("mouseout", () => {
+        erwin.style.transform = `translateY(${translateYValue}px) scale(1)`;
+      });
+      ivan.addEventListener("mouseover", () => {
+        ivan.style.transform = `translateY(${translateYValue}px) scale(1.4)`;
+      });
+
+      ivan.addEventListener("mouseout", () => {
+        ivan.style.transform = `translateY(${translateYValue}px) scale(1)`;
+      });
+
     }
   }
 
@@ -261,6 +289,7 @@
     audioElement.src = "../Bg Audio/rainthunder.mp3";
   }
 });
+
 let closeBtn = document.querySelector(".closebutton");
 let aboutwindow = document.querySelector(".aboutwindow");
 
@@ -268,14 +297,33 @@ closeBtn.addEventListener("click", () => {
   aboutwindow.style.opacity = 0;
 });
 
-</script>
-<script>
-  function zoomImage(id) {
-    var image = document.getElementById(id);
-    image.style.transform = "scale(1.4)";
-    image.style.position = "absolute";
-    image.style.bottom = "5%";
-  }
+let aboutContent = document.getElementById("about-content");
+let originalAboutContent = aboutContent.innerHTML;
+let personName = document.getElementById("person-name");
+
+
+// Define an array of objects containing image and details data
+let members = [
+  { imageId: "erwin",name: "Ahmad", family: "Rouhani", details: "Im 24 year old guy which his passion is coding to make games, applicaiton and web-pages, started the journey back in 2018 by studying software engeenering. My prefer language is also Java. you can contact me via email : ahmad.rouhani1999@ymail.com" },
+  { imageId: "fedor",name: "Fedor", family: "Gorbunov", details: "Insert Fedor's details and interests here" },
+  { imageId: "ivan",name: "Ivan", family: "Zeleny", details: "Insert Ivan's details and interests here" }
+];
+
+// Loop through the members array
+members.forEach((member) => {
+  let image = document.getElementById(member.imageId);
+
+  image.addEventListener("mouseover", () => {
+    aboutContent.innerHTML = member.details;
+    personName.innerHTML = `${member.name} ${member.family}`;
+  });
+
+  image.addEventListener("mouseout", () => {
+    aboutContent.innerHTML = originalAboutContent;
+    personName.innerHTML = "About Us";
+  });
+});
+
 </script>
 </body>
 </html>

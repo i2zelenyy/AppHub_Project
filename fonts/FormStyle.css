@@ -142,10 +142,10 @@
   }
 
   .aboutwindow {
-    height: 30vh;
-    width: 50vw;
+    height: auto;
+    width: 30vw;
     position: absolute;
-    top: 85%;
+    top: 75%;
     left: 50%;
     box-shadow: 0 15px 35px rgba(0,0,0,5);
     transform: translate( -50%, -50%);
@@ -184,7 +184,7 @@
   }
 
 .aboutwindow-body {
-   height: 25vh;
+   height: auto;
    overflow: hidden;
    padding: 10px 7px;
    position: relative;
@@ -208,6 +208,7 @@
   .about-box {
     font-size: 0.75em;
     color: #000000;
+    line-height: 2;
   }
 
   .closebutton{
