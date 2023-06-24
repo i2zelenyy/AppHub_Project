@@ -621,6 +621,22 @@ canvas
     left: 0;
     z-index: -2;
 }
+.logobox {
+      position: absolute;
+      display: flex;
+      width: calc(12.25vw - 20px);
+      height: calc(10.25vh - 20px);
+      z-index: 2;
+      left: 1%;
+      top: 2%;
+    }
+    .logobox img {
+      opacity: 1;
+      width: calc(12.25vw - 20px);
+      height: calc(10.25vh - 20px);
+      padding: 0;
+      cursor: pointer;
+    }
 </style>
 <script>
     const images = [
@@ -729,6 +745,9 @@ canvas
   
   
         <canvas><img id="random-image" src="" alt=""></canvas>
+        <div class="logobox">
+            <a href="../Home_Page.html"><img src="../../icons/Logo.png"></a> 
+          </div>
         <div class="card card-tertiary">
             <div class="card-header">
                 FAR Manager
